@@ -14,8 +14,11 @@ class LinhVucController extends Controller
      */
     public function index()
     {
-        $linhVucs=DB::table('linh_vucs')->get();
-        return view('LinhVuc/ds-linhvuc', compact('linhVucs'));
+        $linhVucs=LinhVuc::all();
+        $trash=DB::table('linh_vucs')->whereNotNull('deleted_at')->get();
+        return view('LinhVuc/ds-linhvuc',['linhVucs'=>$linhVucs,'trash'=>$trash]);
+        //$linhVucs=DB::table('linh_vucs')->get();
+        //return view('LinhVuc/ds-linhvuc', compact('linhVucs'));
         //
     }
 
@@ -40,7 +43,7 @@ class LinhVucController extends Controller
         $linhVuc= new LinhVuc;
         $linhVuc->ten_linh_vuc=$request->ten_linh_vuc;
         $linhVuc->save();
-        return back();
+        return redirect()->route('linh-vuc.danh-sach');
     }
     //public function check(Request $Request)
     //{
@@ -84,7 +87,7 @@ class LinhVucController extends Controller
         $linhVuc =LinhVuc::find($id);
         $linhVuc->ten_linh_vuc=$request->ten_linh_vuc;
         $linhVuc->save();
-        return "Cập nhật lĩnh vực thành công" ;
+        return redirect()->route('linh-vuc.danh-sach');
     }
 
     /**
@@ -95,6 +98,8 @@ class LinhVucController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $linhVuc=LinhVuc::find($id);
+        $linhVuc->Delete();
+        return redirect()->route('linh-vuc.danh-sach');
     }
 }

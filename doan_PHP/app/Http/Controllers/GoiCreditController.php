@@ -14,8 +14,11 @@ class GoiCreditController extends Controller
      */
     public function index()
     {
-        $goiCredits=DB::table('goi_credits')->get();
-        return view('GoiCredit/ds-goicredit', compact('goiCredits'));
+        $goiCredits=GoiCredit::all();
+        $trash=DB::table('goi_credits')->whereNotNull('deleted_at')->get();
+        return view('GoiCredit/ds-goicredit',['goiCredits'=>$goiCredits,'trash'=>$trash]);
+        //$goiCredits=DB::table('goi_credits')->get();
+        //return view('GoiCredit/ds-goicredit', compact('goiCredits'));
     }
 
     /**
@@ -45,7 +48,7 @@ class GoiCreditController extends Controller
         $goiCredit->so_tien=$request->so_tien;
 
         $goiCredit->save();
-        return "Thêm gói credit thành công" ;
+        return redirect()->route('goi-credit.danh-sach');
     }
 
     /**
@@ -67,7 +70,8 @@ class GoiCreditController extends Controller
      */
     public function edit($id)
     {
-        //
+        $goiCredit =GoiCredit::find($id);
+        return view('GoiCredit/update-goicredit', compact('goiCredit'));
     }
 
     /**
@@ -79,7 +83,17 @@ class GoiCreditController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $goiCredit =GoiCredit::find($id);
+
+        $goiCredit->ten_goi=$request->ten_goi;
+
+        $goiCredit->credit=$request->credit;
+
+        $goiCredit->so_tien=$request->so_tien;
+
+        $goiCredit->save();
+        
+        return redirect()->route('goi-credit.danh-sach');
     }
 
     /**
@@ -90,6 +104,8 @@ class GoiCreditController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $goiCredit=GoiCredit::find($id);
+        $goiCredit->Delete();
+        return redirect()->route('goi-credit.danh-sach');
     }
 }

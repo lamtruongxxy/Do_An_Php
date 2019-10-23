@@ -15,7 +15,8 @@ class CauHoiController extends Controller
     public function index()
     {
         $dsCauHoi=CauHoi::all();
-        return view('CauHoi/ds-cauhoi',compact('dsCauHoi'));
+        $dsLinhVuc=LinhVuc::all();
+        return view('CauHoi/ds-cauhoi',compact('dsCauHoi','dsLinhVuc'));
     }
 
     /**
@@ -37,25 +38,25 @@ class CauHoiController extends Controller
      */
     public function store(Request $request)
     {
-        $cauHoi= new CauHoi;
+        $CauHoi= new CauHoi;
 
-        $cauHoi->noi_dung=$request->noi_dung;
+        $CauHoi->noi_dung=$request->noi_dung;
 
-        $cauHoi->linh_vuc_id=$request->linh_vuc_id;
+        $CauHoi->linh_vuc_id=$request->linh_vuc_id;
 
-        $cauHoi->phuong_an_a=$request->phuong_an_a;
+        $CauHoi->phuong_an_a=$request->phuong_an_a;
 
-        $cauHoi->phuong_an_b=$request->phuong_an_b;
+        $CauHoi->phuong_an_b=$request->phuong_an_b;
 
-        $cauHoi->phuong_an_c=$request->phuong_an_c;
+        $CauHoi->phuong_an_c=$request->phuong_an_c;
 
-        $cauHoi->phuong_an_d=$request->phuong_an_d;
+        $CauHoi->phuong_an_d=$request->phuong_an_d;
 
-        $cauHoi->dap_an=$request->dap_an;
+        $CauHoi->dap_an=$request->dap_an;
 
-        $cauHoi->save();
+        $CauHoi->save();
 
-        return "Thêm câu hỏi thành công" ;
+        return redirect()->route('cau-hoi.danh-sach');
     }
 
     /**
@@ -77,7 +78,10 @@ class CauHoiController extends Controller
      */
     public function edit($id)
     {
-        //
+        $dsCauHoi =CauHoi::find($id);
+        $dsLinhVuc=LinhVuc::all();
+        $dsCauHoi1=CauHoi::all();
+        return view('CauHoi/update-cau-hoi', compact('dsCauHoi','dsLinhVuc','dsCauHoi1'));
     }
 
     /**
@@ -89,7 +93,24 @@ class CauHoiController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        
+        $dsCauHoi =CauHoi::find($id);
+
+        $dsCauHoi->noi_dung=$request->noi_dung;
+
+        $dsCauHoi->linh_vuc_id=$request->linh_vuc_id;
+
+        $dsCauHoi->phuong_an_a=$request->phuong_an_a;
+
+        $dsCauHoi->phuong_an_b=$request->phuong_an_b;
+
+        $dsCauHoi->phuong_an_c=$request->phuong_an_c;
+
+        $dsCauHoi->phuong_an_d=$request->phuong_an_d;
+
+        $dsCauHoi->dap_an=$request->dap_an;
+
+        return redirect()->route('cau-hoi.danh-sach');
     }
 
     /**

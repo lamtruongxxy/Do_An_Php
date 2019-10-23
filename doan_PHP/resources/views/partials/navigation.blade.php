@@ -1,4 +1,4 @@
-  <!-- Navigation Bar-->
+      <!-- Navigation Bar-->
         <header id="topnav">
 
             <!-- Topbar Start --> 
@@ -334,45 +334,37 @@
 
                             <li class="">
                                 <a href="{{ route('dashboard') }}">
-                                    <i class="la la-dashboard"></i>Dashboards</a>    
+                                    <i class="la la-dashboard"></i>Welcome</a>    
                             </li>
 
                             <li class="has-submenu">
-                                <a href="{{ route('dashboard') }}">
+                                <a href="{{ route('linh-vuc.danh-sach') }}">
                                     <i class="la la-cube"></i>Lĩnh vực <div class="arrow-down"></div></a>
                                 <ul class="submenu">
                                     <li>
-                                       <a href="{{ route('linh-vuc.danh-sach') }}">Danh sách lĩnh vực</a>
-                                    </li>
-                                    <li>
-                                         <a href="{{ route('linh-vuc.them-moi') }}"> Thêm mới lĩnh vực</a>                             
+                                       <a href="{{ route('linh-vuc.danh-sach') }}">Danh sách & thêm mới
+                                       </a>
                                     </li>
                                 </ul>
                             </li>
 
                             <li class="has-submenu">
-                                <a href="#"> <i class="la la-clone"></i>Gói credits <div class="arrow-down"></div></a>
+                                <a href="{{ route('goi-credit.danh-sach') }}"> <i class="la la-clone"></i>Gói credits <div class="arrow-down"></div></a>
                                 <ul class="submenu">
                                     <li>
-                                        <a href="{{ route('goi-credit.danh-sach') }}  ">Danh sách credits</a>
-                                    </li>
-                                    <li>
-                                        <a href="{{ route('goi-credit.them-moi') }}">Thêm mới credits</a>
+                                        <a href="{{ route('goi-credit.danh-sach') }}">Danh sách & thêm mới </a>
                                     </li>
                                 </ul>
                             </li>
 
                             <li class="has-submenu">
-                                <a href="#"> <i class="la la-briefcase"></i>Câu hỏi<div class="arrow-down"></div></a>
+                                <a href="{{ route('cau-hoi.danh-sach')}}"> <i class="la la-briefcase"></i>Câu hỏi<div class="arrow-down"></div></a>
                                 <ul class="submenu megamenu">
                                     <li>
                                         <ul>
                                             <li>
-                                                <a href="{{ route('cau-hoi.danh-sach')}}">Danh sách câu hỏi</a>
+                                                <a href="{{ route('cau-hoi.danh-sach')}}">Danh sách & thêm mới</a>
                                             </li>
-                                            <li>
-                                                <a href="{{ route('cau-hoi.them-moi') }}">Thêm mới câu hỏi</a>
-                                            </li>  
                                         </ul>
                                     </ul>
                                 </li>
@@ -383,106 +375,16 @@
                                     <li>
                                         <ul>
                                             <li>
-                                                <a href="{{ route('nguoi-choi.danh-sach') }}">Danh sách người chơi</a>
+                                                <a href="{{ route('nguoi-choi.danh-sach') }}">Danh sách </a>
                                             </li>
                                             <li>
-                                                <a href="{{ route('nguoi-choi.danh-sach') }}">Thêm mới người chơi</a>
+                                                <a href="{{ route('nguoi-choi.them-moi') }}">Thêm mới </a>
                                             </li>  
                                         </ul>
                                     </ul>
                                 </li>
 
-                            <li class="has-submenu">
-                                <a href="#"> <i class="la la-flask"></i>Admin UI <div class="arrow-down"></div></a>
-                                <ul class="submenu">
-                                    <li>
-                                        <a href="admin-widgets.html">Widgets</a>
-                                    </li>
-                                    <li>
-                                        <a href="admin-sweet-alert.html">Sweet Alert</a>
-                                    </li>
-                                    <li>
-                                        <a href="admin-nestable.html">Nestable List</a>
-                                    </li>
-                                    <li>
-                                        <a href="admin-range-slider.html">Range Slider</a>
-                                    </li>
-                                    <li>
-                                        <a href="admin-tour.html">Tour Page</a>
-                                    </li>
-                                    <li>
-                                        <a href="admin-lightbox.html">Lightbox</a>
-                                    </li>
-                                    <li>
-                                        <a href="admin-treeview.html">Treeview</a>
-                                    </li>
-                                </ul>
-                            </li>
-
-                            <li class="has-submenu">
-                                <a href="#"> <i class="la la-file-text-o"></i>Pages <div class="arrow-down"></div></a>
-                                <ul class="submenu megamenu">
-                                    <li>
-                                        <ul>
-                                            <li>
-                                                <a href="pages-starter.html">Starter</a>
-                                            </li>
-                                            <li>
-                                                <a href="pages-login.html">Log In</a>
-                                            </li>
-                                            <li>
-                                                <a href="pages-register.html">Register</a>
-                                            </li>
-                                            <li>
-                                                <a href="pages-recoverpw.html">Recover Password</a>
-                                            </li>
-                                            <li>
-                                                <a href="pages-lock-screen.html">Lock Screen</a>
-                                            </li>
-                                            <li>
-                                                <a href="pages-logout.html">Logout</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <ul>
-                                            <li>
-                                                <a href="pages-confirm-mail.html">Confirm Mail</a>
-                                            </li>
-                                            <li>
-                                                <a href="pages-404.html">Error 404</a>
-                                            </li>
-                                            <li>
-                                                <a href="pages-404-alt.html">Error 404-alt</a>
-                                            </li>
-                                            <li>
-                                                <a href="pages-500.html">Error 500</a>
-                                            </li>
-                                            <li>
-                                                <a href="extras-profile.html">Profile</a>
-                                            </li>
-                                            <li>
-                                                <a href="extras-timeline.html">Timeline</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <ul>
-                                            <li>
-                                                <a href="extras-invoice.html">Invoice</a>
-                                            </li>
-                                            <li>
-                                                <a href="extras-faqs.html">FAQs</a>
-                                            </li>
-                                            <li>
-                                                <a href="extras-pricing.html">Pricing</a>
-                                            </li>
-                                            <li>
-                                                <a href="extras-maintenance.html">Maintenance</a>
-                                            </li>
-                                            <li>
-                                                <a href="extras-coming-soon.html">Coming Soon</a>
-                                            </li>
+                           
                                         </ul>
                                     </li>
                                 </ul>
