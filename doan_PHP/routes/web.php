@@ -11,6 +11,9 @@
 |
 */
 
+//Route::get('/', function(){
+//	return view('Login/login');
+//});
 Route::get('/','InDex@index')->name('dashboard');
 //-------LINH_VUC
 Route::prefix('linh-vuc')->group(function(){

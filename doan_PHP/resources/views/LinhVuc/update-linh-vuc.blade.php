@@ -1,5 +1,4 @@
- 
-@extends('layout')
+ @extends('layout')
 
 @section('main-content')
                 <div class="row">
@@ -22,4 +21,4 @@
                         </div> <!-- end card-body-->
                     </div> <!-- end card-->
                 </div> <!-- end col -->
-@endsection\
+@endsection
