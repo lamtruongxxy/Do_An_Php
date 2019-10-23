@@ -48,11 +48,7 @@
                         <div class="card">
                             <div class="card-body">
                                 <h4 class="header-title">DANH SÁCH LĨNH VỰC</h4>
-                                <p class="text-muted font-13 mb-4">
-                                    DataTables has most features enabled by default, so all you need to do to use it with your own tables is to call the construction
-                                    function:
-                                    <code>$().DataTable();</code>.
-                                </p>
+                            
 
                                 <table id="Linh-vuc-datatable" class="table dt-responsive nowrap">
                                     <thead>
