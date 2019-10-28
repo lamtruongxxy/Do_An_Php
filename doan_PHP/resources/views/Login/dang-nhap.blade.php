@@ -30,8 +30,8 @@
                                 
                                 <h5 class="auth-title">Sign In</h5>
 
-                                <form action="#">
-
+                                <form action="{{ route('xy-ly-dang-nhap') }}"method="POST">
+                                    @csrf
                                     <div class="form-group mb-3">
                                         <label for="emailaddress">User</label>
                                         <input class="form-control" type="email" id="emailaddress" required="" placeholder="Enter your User">

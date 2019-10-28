@@ -3,8 +3,8 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-
-class QuanTriVien extends Model
+use Illuminate\Foundation\Auth\User as Authenticatable;
+class QuanTriVien extends Authenticatable
 {
-    //
+    protected $table='quan_tri_viens';
 }

@@ -14,6 +14,11 @@
 //Route::get('/', function(){
 //	return view('Login/login');
 //});
+
+Route::get('dang-nhap','QuanTriVienController@dangNhap')-> name('dag-nhap');
+Route::post('dang-nhap','QuanTriVienController@xyLyDangNhap')->name('xu-ly-dang-nhap');	
+
+
 Route::get('/','InDex@index')->name('dashboard');
 //-------LINH_VUC
 Route::prefix('linh-vuc')->group(function(){
