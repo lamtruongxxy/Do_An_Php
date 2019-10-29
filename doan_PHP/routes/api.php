@@ -18,3 +18,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::get('nguoi-choi','API\NguoiChoiAPI@layDanhSach');
+Route::get('linh-vuc','API\LinhVucAPI@layDanhSach');
