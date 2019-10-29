@@ -16,9 +16,17 @@
         <script src="{{ asset('assets/libs/pdfmake/pdfmake.min.js') }}"></script>
         <script src="{{ asset('assets/libs/pdfmake/vfs_fonts.js') }}"></script>
         <!-- third party js ends -->
+        <!-- Tost-->
+         <!-- Tost
+        <script src="{{ asset(' assets/libs/jquery-toast/jquery.toast.min.js') }}"></script>-->
+
+        <!-- toastr init js-->
+        <!-- <script src="{{ asset(' assets/js/pages/toastr.init.js') }}"></script>-->
+
         <script type="text/javascript">
         $(document).ready(function()
-        {$("#Linh-vuc-datatable").DataTable({
+        {
+            $("#Linh-vuc-datatable").DataTable({
             language:{
                 paginate:{
                     previous:"<i class='mdi mdi-chevron-left'>",
@@ -31,6 +39,9 @@
     });
     });
         </script>
+        <script type="text/javascript">
+       
+        </script>
        
 @endsection
 
@@ -40,9 +51,13 @@
         <link href="{{ asset ('assets/libs/datatables/responsive.bootstrap4.css') }}" rel="stylesheet" type="text/css" />
         <link href="{{ asset ('assets/libs/datatables/buttons.bootstrap4.css') }}" rel="stylesheet" type="text/css" />
         <link href="{{ asset ('assets/libs/datatables/select.bootstrap4.css') }}" rel="stylesheet" type="text/css" />
+        <!-- Jquery Toast css -->
+        <!-- J<link href="{{ asset ('assets/libs/jquery-toast/jquery.toast.min.css') }}" rel="stylesheet" type="text/css" />-->
+        
 @endsection
 
 @section('main-content')
+ <button type="button" class="btn btn-success waves-effect waves-light btn-sm" id="toastr-three">Click me</button>
 <div class="row">
                     <div class="col-8">
                         <div class="card">
@@ -56,6 +71,7 @@
                                             <th>ID</th>
                                             <th>Tên lĩnh vực</th>
                                             <th></th>
+
                                         </tr>
                                     </thead>
                                 
@@ -67,6 +83,7 @@
                                             <td>
                                             	<a href="{{ route('linh-vuc.xoa',['id'=>$linhvuc->id]) }}" class="btn btn-danger waves-effect waves-light"><i class="mdi mdi-trash-can-outline"></i></a>
                                             	<a href="{{ route('linh-vuc.cap-nhat', ['id'=>$linhvuc->id ]) }}" class="btn btn-info waves-effect waves-light"><i class="mdi mdi-pen-minus"></i></a>
+                                               
                                             </td>
                                         </tr>
                                         @endforeach
@@ -90,13 +107,14 @@
                                         <label for="ten_linh_vuc">TÊN LĨNH VỰC</label>
                                         <input type="text" class="form-control" id="ten_linh_vuc" name="ten_linh_vuc" placeholder="Tên Lĩnh vực"> 
                                     </div>                               
-                                     <button type="sumit" class="btn btn-success waves-effect waves-light">
+                                    <button type="sumit" class="btn btn-success waves-effect waves-light" >
                                             <span class="btn-label"><i class="fe-plus"></i></span>Thêm
-                                        </button>     
+                                    </button>
+                                                                    
                                 </form>
                             </div>    
                         </div> <!-- end card-body-->
                     </div> <!-- end card-->
                 </div> <!-- end col -->
 
-@endsection
+@endsection 

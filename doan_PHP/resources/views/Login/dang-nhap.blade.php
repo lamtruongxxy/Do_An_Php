@@ -30,16 +30,16 @@
                                 
                                 <h5 class="auth-title">Sign In</h5>
 
-                                <form action="{{ route('xy-ly-dang-nhap') }}"method="POST">
+                                <form action="{{ route('xu-ly-dang-nhap') }}"method="POST">
                                     @csrf
                                     <div class="form-group mb-3">
                                         <label for="emailaddress">User</label>
-                                        <input class="form-control" type="email" id="emailaddress" required="" placeholder="Enter your User">
+                                        <input class="form-control" type="text" id="ten_dang_nhap" name="ten_dang_nhap" required="" placeholder="Enter your User">
                                     </div>
 
                                     <div class="form-group mb-3">
                                         <label for="password">Password</label>
-                                        <input class="form-control" type="password" required="" id="password" placeholder="Enter your password">
+                                        <input class="form-control" type="password" required="" id="mat_khau" name="mat_khau" placeholder="Enter your password">
                                     </div>
 
                                     <div class="form-group mb-3">

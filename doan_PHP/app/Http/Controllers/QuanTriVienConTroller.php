@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
- 
+use App\QuanTriVien;
+use Illuminate\Support\Facades\Auth;
 class QuanTriVienConTroller extends Controller
 {
     /**
@@ -88,6 +89,12 @@ class QuanTriVienConTroller extends Controller
     }
      public function xyLydangNhap(Request $request)
     {
-         return "Dang xu ly";
+        $thongTin = $request->only(['ten_dang_nhap','mat_khau']);
+        if(Auth::attemp($thongTin))
+        {
+
+            return "Dang nhap thanh cong";
+        }
+        return "CC";
     }
 }
