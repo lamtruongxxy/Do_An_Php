@@ -38,23 +38,23 @@ class CauHoiController extends Controller
      */
     public function store(Request $request)
     {
-        $CauHoi= new CauHoi;
+        $dsCauHoi = new CauHoi;
 
-        $CauHoi->noi_dung=$request->noi_dung;
+        $dsCauHoi->noi_dung=$request->noi_dung;
 
-        $CauHoi->linh_vuc_id=$request->linh_vuc_id;
+        $dsCauHoi->linh_vuc_id=$request->linh_vuc;
 
-        $CauHoi->phuong_an_a=$request->phuong_an_a;
+        $dsCauHoi->phuong_an_a=$request->phuong_an_a;
 
-        $CauHoi->phuong_an_b=$request->phuong_an_b;
+        $dsCauHoi->phuong_an_b=$request->phuong_an_b;
 
-        $CauHoi->phuong_an_c=$request->phuong_an_c;
+        $dsCauHoi->phuong_an_c=$request->phuong_an_c;
 
-        $CauHoi->phuong_an_d=$request->phuong_an_d;
+        $dsCauHoi->phuong_an_d=$request->phuong_an_d;
 
-        $CauHoi->dap_an=$request->dap_an;
+        $dsCauHoi->dap_an=$request->dap_an;
 
-        $CauHoi->save();
+        $dsCauHoi->save();
 
         return redirect()->route('cau-hoi.danh-sach');
     }
@@ -80,8 +80,7 @@ class CauHoiController extends Controller
     {
         $dsCauHoi =CauHoi::find($id);
         $dsLinhVuc=LinhVuc::all();
-        $dsCauHoi1=CauHoi::all();
-        return view('CauHoi/update-cau-hoi', compact('dsCauHoi','dsLinhVuc','dsCauHoi1'));
+        return view('CauHoi/update-cau-hoi', compact('dsCauHoi','dsLinhVuc'));
     }
 
     /**
@@ -93,12 +92,11 @@ class CauHoiController extends Controller
      */
     public function update(Request $request, $id)
     {
-        
         $dsCauHoi =CauHoi::find($id);
-
+        
         $dsCauHoi->noi_dung=$request->noi_dung;
 
-        $dsCauHoi->linh_vuc_id=$request->linh_vuc_id;
+        $dsCauHoi->linh_vuc_id=$request->linh_vuc;
 
         $dsCauHoi->phuong_an_a=$request->phuong_an_a;
 
@@ -109,6 +107,8 @@ class CauHoiController extends Controller
         $dsCauHoi->phuong_an_d=$request->phuong_an_d;
 
         $dsCauHoi->dap_an=$request->dap_an;
+
+        $dsCauHoi->save();
 
         return redirect()->route('cau-hoi.danh-sach');
     }

@@ -14,18 +14,16 @@
                                         <input type="text" class="form-control" id="noi_dung" name="noi_dung" value="{{ $dsCauHoi->noi_dung }}">
                                     </div>
                                     <div class="form-group">
-                                        <label for="linh_vuc_id">Lĩnh vực</label>
-                                        <input type="text" class="form-control" id="linh_vuc_id" name="linh_vuc_id" value="{{ $dsCauHoi->linh_vuc_id }}">
-                                    </div>
-                                    <!--<div class="form-group">
-                                        <label for="linh_vuc_id">Lĩnh vực</label>
-                                       <select id="linh_vuc_id" name="linh_vuc_id"class="form-control">
-                                            <option>Lĩnh vực</option>
+                                        <label for="linh_vuc">Lĩnh vực</label>
+                                       <select id="linh_vuc" name="linh_vuc" class="form-control">
+                                            <option selected="">Lĩnh vực</option>
                                             @foreach( $dsLinhVuc as $linhVuc)
-                                            <option value="{{ $dsCauHoi->linh_vuc_id }}">{{ $linhVuc->ten_linh_vuc }}</option> @endforeach
+                                            <option value="{{ $linhVuc->id }}">
+                                                {{ $linhVuc->ten_linh_vuc }}
+                                            </option> 
+                                            @endforeach
                                             </select>
-                                    </div>-->
-
+                                    </div>
                                     <div class="form-group">
                                         <label for="phuong_an_a">Phương án A</label>
                                         <input type="text" class="form-control" id="phuong_an_a" name="phuong_an_a" value="{{ $dsCauHoi->phuong_an_a }}" >

@@ -17,12 +17,11 @@
         <script src="{{ asset('assets/libs/pdfmake/vfs_fonts.js') }}"></script>
         <!-- third party js ends -->
         <!-- Tost-->
-         <!-- Tost
-        <script src="{{ asset(' assets/libs/jquery-toast/jquery.toast.min.js') }}"></script>-->
+         
+        <script src="{{ asset('assets/libs/jquery-toast/jquery.toast.min.js') }}"></script>
 
         <!-- toastr init js-->
-        <!-- <script src="{{ asset(' assets/js/pages/toastr.init.js') }}"></script>-->
-
+        <script src="{{ asset('assets/js/pages/toastr.init.js') }}"></script>
         <script type="text/javascript">
         $(document).ready(function()
         {
@@ -40,7 +39,29 @@
     });
         </script>
         <script type="text/javascript">
-       
+       ! function(p) {
+    "use strict";
+    var t = function() {};
+    t.prototype.send = function(t, i, o, e, n, a, s, r) {
+        a || (a = 3e3), s || (s = 1);
+        var c = {
+            heading: t,
+            text: i,
+            position: o,
+            loaderBg: e,
+            icon: n,
+            hideAfter: a,
+            stack: s
+        };
+        r && (c.showHideTransition = r), console.log(c), p.toast().reset("all"), p.toast(c)
+    }, p.NotificationApp = new t, p.NotificationApp.Constructor = t
+}(window.jQuery),
+function(i) {
+    "use strict";
+    i("#luu-thanh-cong").on("click", function(t) {
+        i.NotificationApp.send("THÀNH CÔNG", "LƯU DỮ LIỆU THÀNH CÔNG", "top-right", "#5ba035", "success")
+    })
+}(window.jQuery);
         </script>
        
 @endsection
@@ -52,12 +73,11 @@
         <link href="{{ asset ('assets/libs/datatables/buttons.bootstrap4.css') }}" rel="stylesheet" type="text/css" />
         <link href="{{ asset ('assets/libs/datatables/select.bootstrap4.css') }}" rel="stylesheet" type="text/css" />
         <!-- Jquery Toast css -->
-        <!-- J<link href="{{ asset ('assets/libs/jquery-toast/jquery.toast.min.css') }}" rel="stylesheet" type="text/css" />-->
+        <link href="{{ asset ('assets/libs/jquery-toast/jquery.toast.min.css') }}" rel="stylesheet" type="text/css" />
         
 @endsection
 
 @section('main-content')
- <button type="button" class="btn btn-success waves-effect waves-light btn-sm" id="toastr-three">Click me</button>
 <div class="row">
                     <div class="col-8">
                         <div class="card">
@@ -82,6 +102,7 @@
                                             <td>{{ $linhvuc->ten_linh_vuc}}</td>
                                             <td>
                                             	<a href="{{ route('linh-vuc.xoa',['id'=>$linhvuc->id]) }}" class="btn btn-danger waves-effect waves-light"><i class="mdi mdi-trash-can-outline"></i></a>
+                                                
                                             	<a href="{{ route('linh-vuc.cap-nhat', ['id'=>$linhvuc->id ]) }}" class="btn btn-info waves-effect waves-light"><i class="mdi mdi-pen-minus"></i></a>
                                                
                                             </td>
@@ -95,26 +116,22 @@
                     </div><!-- end col-->
                 
                 <!-- end row-->
-                
-                    <div class="col-lg-4">
+                   <div class="col-lg-4">
                         <div class="card">
                             <div class="card-body">
                                 <h3 class="mb-3 header-title"> THÊM MỚI LĨNH VỰC </h3>
-
-                                <form action="{{ route('linh-vuc.post-them-moi') }}" method="POST">
+                                <form action="{{ route('linh-vuc.post-them-moi') }}" method="POST">  
                                     @csrf
                                     <div class="form-group">
                                         <label for="ten_linh_vuc">TÊN LĨNH VỰC</label>
-                                        <input type="text" class="form-control" id="ten_linh_vuc" name="ten_linh_vuc" placeholder="Tên Lĩnh vực"> 
-                                    </div>                               
-                                    <button type="sumit" class="btn btn-success waves-effect waves-light" >
-                                            <span class="btn-label"><i class="fe-plus"></i></span>Thêm
-                                    </button>
-                                                                    
+                                        <input type="text" class="form-control" id="ten_linh_vuc" name="ten_linh_vuc" placeholder="Tên Lĩnh vực" > 
+                                    </div>
+                                   
+                                     <button type="sumit" class="btn btn-success waves-effect waves-light" id="luu-thanh-cong">
+                                            <span class="btn-label"><i class="mdi mdi-pen-minus"></i></span>Thêm
+                                        </button>     
                                 </form>
                             </div>    
                         </div> <!-- end card-body-->
                     </div> <!-- end card-->
-                </div> <!-- end col -->
-
 @endsection 

@@ -101,8 +101,8 @@
                                     </div>
 
                                      <div class="form-group">
-                                        <label for="noi_dung">Lĩnh vực</label>
-                                        <select id="linh_vuc_id" name="linh_vuc_id"class="form-control">
+                                        <label for="linh_vuc">Lĩnh vực</label>
+                                        <select id="linh_vuc" name="linh_vuc"class="form-control">
                                                 <option>Chọn lĩnh vực</option>
                                                 @foreach( $dsLinhVuc as $linhVuc)
                                                 <option value="{{ $linhVuc->id}}">{{ $linhVuc->ten_linh_vuc }} </option>
