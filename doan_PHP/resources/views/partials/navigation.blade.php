@@ -202,10 +202,11 @@
                         <!-- Navigation Menu-->
                         <ul class="navigation-menu">
 
-                            <!--<li class="">
+                            <li class="">
                                 <a href="{{ route('dashboard') }}">
                                     <i class="la la-dashboard"></i>Welcome</a>    
-                            </li>-->
+                            </li>
+
                             <li class="has-submenu">
                                 <a href="{{ route('linh-vuc.danh-sach') }}">
                                     <i class="la la-cube"></i>Lĩnh vực <div class="arrow-down"></div></a>
@@ -233,7 +234,7 @@
                                     <li>
                                         <ul>
                                             <li>
-                                                <a href="{{ route('nguoi-choi.danh-sach') }}">Danh sách & thêm mới</a>
+                                                <a href="">Danh sách & thêm mới</a>
                                             </li> 
                                         </ul>
                                     </li>
