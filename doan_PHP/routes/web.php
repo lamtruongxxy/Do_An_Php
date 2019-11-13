@@ -30,7 +30,8 @@ Route::prefix('linh-vuc')->group(function(){
 		Route::get('/cap-nhat/{id}','LinhVucController@edit')->name('cap-nhat');
 		Route::post('/cap-nhat/{id}','LinhVucController@update')->name('xl-cap-nhat');
 		Route::delete('/xoa/{id}','LinhVucController@destroy')->name('xoa');
-	
+		Route::get('/trash-list','LinhVucController@trashList')->name('trash');
+		Route::get('/khoi-phuc/{id}','LinhVucController@restore')->name('restore');	
 	});	
 });
 //------GOI_CREDIT

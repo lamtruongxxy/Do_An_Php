@@ -214,6 +214,10 @@
                                        <a href="{{ route('linh-vuc.danh-sach') }}">Danh sách & thêm mới
                                        </a>
                                     </li>
+                                    <li>
+                                       <a href="{{ route('linh-vuc.trash') }}">Danh sách đã xóa
+                                       </a>
+                                    </li>
                                 </ul>
                             </li>
                              <li class="has-submenu">

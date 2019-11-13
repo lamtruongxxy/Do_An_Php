@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\LinhVuc;
+use App\CauHoi;
 class LinhVucController extends Controller
 {
     /**
@@ -98,8 +99,39 @@ class LinhVucController extends Controller
      */
     public function destroy($id)
     {
-        $linhVuc=LinhVuc::find($id);
-        $linhVuc->Delete();
+        try
+        {
+            $linhVuc= LinhVuc::findOrFail($id);
+            $xoaCauHoi= CauHoi::where('linh_vuc_id',$id)->delete();
+            $xoaLinhVuc=$linhVuc->delete();
+            if($xoaLinhVuc){
+                return redirect()->route('linh-vuc.danh-sach');
+            }
+             return redirect()->route('linh-vuc.danh-sach');
+         }catch(Exception $e){
+            return redirect()->route('linh-vuc.danh-sach');
+        }
+    }
+    public function trashList()// Danh Sách đã xóa
+    {
+        $trashLinhVuc=LinhVuc::onlyTrashed()->get();
+        return view('LinhVuc/trash-linh-vuc',compact('trashLinhVuc'));
+    }
+    public function restore($id)// Khôi phục
+    {
+        $linhVuc=LinhVuc::onlyTrashed()->findOrFail($id)->restore();
         return redirect()->route('linh-vuc.danh-sach');
+        //try {
+            //$id=$request->id;
+            //$linhVuc=LinhVuc::onlyTrashed()->findOrFail($id);
+            //$khoiPhucDSCauHoi=CauHoi::onlyTrashed()->where('delete_at',$linhVuc->delete_at)->restore();
+            //$khoiPhucLinhVuc=$linhVuc->restore();
+            //if($khoiPhucLinhVuc && $khoiPhucDSCauHoi){
+                //return redirect()->route('linh-vuc.danh-sach');
+            //}
+            //return redirect()->route('linh-vuc.danh-sach');
+        //}catch(Exception $e){
+            //return redirect()->route('linh-vuc.danh-sach');
+        //}
     }
 }

@@ -47,7 +47,7 @@
                     <div class="col-8">
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="header-title">DANH SÁCH LĨNH VỰC</h4>
+                                <h4 class="header-title">DANH SÁCH NGƯỜI CHƠI</h4>
                             
 
                                 <table id="Linh-vuc-datatable" class="table dt-responsive nowrap">
@@ -89,7 +89,7 @@
                     <div class="col-lg-4">
                         <div class="card">
                             <div class="card-body">
-                                <h3 class="mb-3 header-title"> Thêm người chơi </h3>
+                                <h3 class="mb-3 header-title"> THÊM NGƯỜI CHƠI </h3>
 
                                 <form action="{{ route('nguoi-choi.post-them-moi') }}" method="POST">
                                     @csrf
