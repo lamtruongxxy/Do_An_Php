@@ -1,5 +1,4 @@
-
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="utf-8" />
@@ -28,29 +27,43 @@
 
                             <div class="card-body p-4">
                                 
-                                <h5 class="auth-title">Sign In</h5>
+                                <h5 class="auth-title">ADMIN</h5>
+
+                                @if($errors->any())
+                                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">×</span>
+                                </button>
+                                
+                                @foreach($errors->all() as $err)
+                                    <li>{{ $err }}</li>
+                                @endforeach
+                                
+                                </div>
+                                @endif
+
+                                @if(session('thong-bao'))
+                                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">×</span>
+                                </button>
+                                {{ session('thong-bao') }}
+                                </div>
+                                @endif
 
                                 <form action="{{ route('xu-ly-dang-nhap') }}"method="POST">
                                     @csrf
                                     <div class="form-group mb-3">
-                                        <label for="emailaddress">User</label>
-                                        <input class="form-control" type="text" id="ten_dang_nhap" name="ten_dang_nhap" required="" placeholder="Enter your User">
+                                        <label for="emailaddress">Tên đăng nhập </label>
+                                        <input class="form-control" type="text" id="ten_dang_nhap" name="ten_dang_nhap" placeholder="Nhập tên Admin">
                                     </div>
 
                                     <div class="form-group mb-3">
-                                        <label for="password">Password</label>
-                                        <input class="form-control" type="password" required="" id="mat_khau" name="mat_khau" placeholder="Enter your password">
+                                        <label for="password">Mật khẩu</label>
+                                        <input class="form-control" type="password" id="mat_khau" name="mat_khau" placeholder="Nhập mật khẩu admin">
                                     </div>
-
-                                    <div class="form-group mb-3">
-                                        <div class="custom-control custom-checkbox checkbox-info">
-                                            <input type="checkbox" class="custom-control-input" id="checkbox-signin">
-                                            <label class="custom-control-label" for="checkbox-signin">Remember me</label>
-                                        </div>
-                                    </div>
-
                                     <div class="form-group mb-0 text-center">
-                                        <button class="btn btn-danger btn-block" type="submit"> Log In </button>
+                                        <button class="btn btn-danger btn-block" type="submit"> Đăng nhập </button>
                                     </div>
 
                                 </form>
@@ -60,8 +73,7 @@
 
                         <div class="row mt-3">
                             <div class="col-12 text-center">
-                                <p> <a href="pages-recoverpw.html" class="text-muted ml-1">Forgot your password?</a></p>
-                                <p class="text-muted">Don't have an account? <a href="pages-register.html" class="text-muted ml-1"><b class="font-weight-semibold">Sign Up</b></a></p>
+                                <p> <a href="pages-recoverpw.html" class="text-muted ml-1">Quên mật khẩu?</a></p>
                             </div> <!-- end col -->
                         </div>
                         <!-- end row -->

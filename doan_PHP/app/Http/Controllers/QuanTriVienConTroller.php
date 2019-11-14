@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\QuanTriVien;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\DangNhapRequest;
 class QuanTriVienConTroller extends Controller
 {
     /**
@@ -87,14 +88,28 @@ class QuanTriVienConTroller extends Controller
     {
         return view('Login/dang-nhap');
     }
-     public function xyLydangNhap(Request $request)
-    {
-        $thongTin = $request->only(['ten_dang_nhap','mat_khau']);
-        if(Auth::attemp($thongTin))
-        {
 
-            return "Dang nhap thanh cong";
+     public function xyLydangNhap(DangNhapRequest $request)
+    {
+        //Bao-Loi
+        //Xy-ly dang nhap
+        $thongTin = $request->only(['ten_dang_nhap','mat_khau']);
+        if(Auth::attempt(['ten_dang_nhap'=>$thongTin['ten_dang_nhap'],
+         'password'=>$thongTin['mat_khau']])){
+            return redirect()->route('dashboard');
         }
-        return "CC";
+        return redirect()->back()->with('thong-bao',' Đăng nhập thất bại');
     }
+
+     public function xyLydangXuat(Request $request)
+     {
+        Auth::logout();
+        return redirect()->route('dang-nhap');
+     }
+
+     protected $redirectTo='index';
+     protected function redirectTo()
+     {
+        return 'index';
+     }
 }

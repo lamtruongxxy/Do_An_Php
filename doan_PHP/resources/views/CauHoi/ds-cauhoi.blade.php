@@ -96,12 +96,12 @@
                                 <form action="{{ route('cau-hoi.post-them-moi') }}" method="POST">
                                     @csrf
                                     <div class="form-group">
-                                        <label for="noi_dung">Nội dung</label>
+                                        <label for="noi_dung">NỘI DUNG</label>
                                         <input type="text" class="form-control" id="noi_dung" name="noi_dung" placeholder="Nội dung">
                                     </div>
 
                                      <div class="form-group">
-                                        <label for="linh_vuc">Lĩnh vực</label>
+                                        <label for="linh_vuc">LĨNH VỰC</label>
                                         <select id="linh_vuc" name="linh_vuc"class="form-control">
                                                 <option>Chọn lĩnh vực</option>
                                                 @foreach( $dsLinhVuc as $linhVuc)
@@ -111,26 +111,26 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="phuong_an_a">Phương án A</label>
+                                        <label for="phuong_an_a">PHƯƠNG ÁN A</label>
                                         <input type="text" class="form-control" id="phuong_an_a" name="phuong_an_a" placeholder="Phương án a">
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="phuong_an_b">Phương án B</label>
+                                        <label for="phuong_an_b">PHƯƠNG ÁN B</label>
                                         <input type="text" class="form-control" id="phuong_an_b" name="phuong_an_b" placeholder="Phương án b">
                                     </div>                       
                                     <div class="form-group">
-                                        <label for="phuong_an_c">Phương án C</label>
+                                        <label for="phuong_an_c">PHƯƠNG ÁN C</label>
                                         <input type="text" class="form-control" id="phuong_an_c" name="phuong_an_c" placeholder="Phương án c">
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="phuong_an_d">Phương án D</label>
+                                        <label for="phuong_an_d">PHƯƠNG ÁN D</label>
                                         <input type="text" class="form-control" id="phuong_an_d" name="phuong_an_d" placeholder="Phương án d">
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="dap_an">Đáp án</label>
+                                        <label for="dap_an">ĐÁP ÁN</label>
                                         <select id="dap_an" name="dap_an"class="form-control">
                                             <option value="A">A</option>
                                             <option value="B">B</option>

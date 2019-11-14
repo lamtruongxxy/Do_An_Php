@@ -160,7 +160,7 @@
                                 <div class="dropdown-divider"></div>
 
                                 <!-- item-->
-                                <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                <a href="{{ route('xu-ly-dang-xuat') }}" class="dropdown-item notify-item">
                                     <i class="fe-log-out"></i>
                                     <span>Logout</span>
                                 </a>
