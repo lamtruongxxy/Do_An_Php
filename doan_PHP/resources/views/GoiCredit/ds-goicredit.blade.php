@@ -43,7 +43,8 @@
 @endsection
 
 @section('main-content')
-        <div class="row">
+
+<div class="row">
                 <div class="col-8">
                         <div class="card">
                             <div class="card-body">
@@ -60,15 +61,21 @@
                                     </thead>
                                 
                                     <tbody>
-                                    	@foreach($goiCredits as $goi)
+                                        @foreach($goiCredits as $goi)
                                         <tr>
                                             <td>{{ $goi->id }}</td>
                                             <td>{{ $goi->ten_goi}}</td>
                                             <td>{{ $goi->credit}}</td>
                                             <td>{{ $goi->so_tien}}</td>
                                             <td>
-                                            	<a  href="{{ route('goi-credit.xoa',['id'=>$goi->id]) }}"class="btn btn-danger waves-effect waves-light"><i class="mdi mdi-trash-can-outline"></i></a>
-                                            	<a href="{{ route('goi-credit.cap-nhat', ['id'=>$goi->id ]) }}" class="btn btn-info waves-effect waves-light"><i class="mdi mdi-pen-minus"></i></a>
+                                                <form action="{{ route('goi-credit.xoa',['id'=>$goi->id]) }}" method="POST">
+                                                @csrf
+                                                @method('DELETE')
+                                                <a href="{{ route('goi-credit.cap-nhat', ['id'=>$goi->id ]) }}" class="btn btn-info waves-effect waves-light"><i class="mdi mdi-pen-minus">Sửa</i></a>
+
+                                                <button type="submit" class="btn btn-danger waves-effect waves-light"><i class="mdi mdi-trash-can-outline">Xóa</i></a>
+                                                </button>
+                                            </form>
                                             </td>
                                         </tr>
                                         @endforeach
@@ -85,17 +92,17 @@
                                     @csrf
                                     <div class="form-group">
                                         <label for="ten_goi">TÊN GÓI</label>
-                                        <input type="text" class="form-control" id="ten_goi" name="ten_goi" placeholder="Tên gói">
+                                        <input type="text" class="form-control" id="ten_goi" name="ten_goi" placeholder="Tên gói" required="" >
                                     </div>
                                     <div class="form-group">
                                         <label for="credit">CREDIT</label>
-                                        <input type="number" class="form-control" id="credit" name="credit" placeholder="Credit"> 
+                                        <input type="number" class="form-control" id="credit" name="credit" placeholder="Credit" required=""  > 
                                     </div>
                                     <div class="form-group">
                                         <label for="so_tien">SỐ TIỀN</label>
-                                        <input type="number" class="form-control" id="so_tien" name="so_tien" placeholder="Số tiền">  
+                                        <input type="number" class="form-control" id="so_tien" name="so_tien" placeholder="Số tiền" required=""  >  
                                     </div>
-                                    <button type="sumit" class="btn btn-success waves-effect waves-light">
+                                    <button type="submit" class="btn btn-success waves-effect waves-light">
                                             <span class="btn-label"><i class="fe-plus"></i></span>Thêm
                                         </button>
                                 </form>

@@ -228,9 +228,13 @@
                                             <li>
                                                 <a href="{{ route('cau-hoi.danh-sach')}}">Danh sách & thêm mới</a>
                                             </li>
+                                            <li>
+                                                <a href="{{ route('cau-hoi.trash')}}">Danh sách đã xóa</a>
+                                            </li>
                                         </ul>
                                     </ul>
                                 </li>
+                                
                                 <li class="has-submenu" >
                                 <a href="{{ route('nguoi-choi.danh-sach') }}"> <i class="fe-user"></i>Người chơi<div class="arrow-down"></div></a>
                                 <ul class="submenu megamenu" >
@@ -238,11 +242,27 @@
                                         <ul>
                                             <li>
                                                 <a href="{{ route('nguoi-choi.danh-sach') }}">Danh sách & thêm mới</a>
-                                            </li> 
+                                            </li>
+                                             <li>
+                                                <a href="{{ route('nguoi-choi.trash')}}">Danh sách đã xóa</a>
+                                            </li>
                                         </ul>
                                     </li>
                                 </ul>
                             </li>
+
+                            <li class="has-submenu">
+                                <a href="{{ route('goi-credit.danh-sach') }}"> <i class="la la-clone"></i>Gói credits <div class="arrow-down"></div></a>
+                                <ul class="submenu">
+                                    <li>
+                                        <a href="{{ route('goi-credit.danh-sach') }}">Danh sách & thêm mới </a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ route('goi-credit.trash') }}">Danh sách đã xóa</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            
                                 <li class="has-submenu">
                                 <a href="aaaa"> <i class="mdi mdi-format-line-weight"></i>Lượt chơi<div class="arrow-down"></div></a>
                                 <ul class="submenu megamenu">
@@ -267,16 +287,6 @@
                                         </li>
                                     </ul>
                                 </li>
-
-
-                            <li class="has-submenu">
-                                <a href="{{ route('goi-credit.danh-sach') }}"> <i class="la la-clone"></i>Gói credits <div class="arrow-down"></div></a>
-                                <ul class="submenu">
-                                    <li>
-                                        <a href="{{ route('goi-credit.danh-sach') }}">Danh sách & thêm mới </a>
-                                    </li>
-                                </ul>
-                            </li>
                             <li class="has-submenu">
                                 <a href="aaa"> <i class="mdi mdi-history"></i>Lịch sử mua credit<div class="arrow-down"></div></a>
                                 <ul class="submenu">

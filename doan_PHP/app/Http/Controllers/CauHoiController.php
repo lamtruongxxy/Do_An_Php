@@ -121,6 +121,21 @@ class CauHoiController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $cauHoi=CauHoi::findOrFail($id);
+        $xoaCauHoi=$cauHoi->delete();
+        if($xoaCauHoi)
+            return redirect()->route('cau-hoi.danh-sach');
+        return redirect()->route('cau-hoi.danh-sach');
+
+    }
+    public function trashList()// Danh Sách đã xóa
+    {
+        $trashCauHoi=CauHoi::onlyTrashed()->get();
+        return view('CauHoi/trash-cau-hoi',compact('trashCauHoi'));
+    }
+    public function restore($id)// Khôi phục
+    {
+        $cauHoi=CauHoi::onlyTrashed()->findOrFail($id)->restore();
+        return redirect()->route('cau-hoi.danh-sach');
     }
 }

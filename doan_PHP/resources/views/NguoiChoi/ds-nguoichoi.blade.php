@@ -75,8 +75,14 @@
                                             <td>{{ $nguoichoi->diem_cao_nhat }}</td>
                                             <td>{{ $nguoichoi->credit }}</td>
                                             <td>
-                                            	<a href="" class="btn btn-danger waves-effect waves-light"><i class="mdi mdi-trash-can-outline"></i></a>
-                                            	<a class="btn btn-info waves-effect waves-light"><i class="mdi mdi-pen-minus"></i></a>
+                                                <form action="{{ route('nguoi-choi.xoa',['id'=>$nguoichoi->id]) }}" method="POST">
+                                                @csrf
+                                                @method('DELETE')
+                                            	
+                                            	<a href="{{ route('nguoi-choi.cap-nhat', ['id'=>$nguoichoi->id ]) }}" class="btn btn-info waves-effect waves-light"><i class="mdi mdi-pen-minus">Sửa</i></a>
+
+                                                <button class="btn btn-danger waves-effect waves-light"><i class="mdi mdi-trash-can-outline">Xóa</i></button>
+                                            </form>
                                             </td>
                                         </tr>
                                         @endforeach
@@ -95,27 +101,27 @@
                                     @csrf
                                     <div class="form-group">
                                         <label for="ten_dang_nhap">TÊN ĐĂNG NHẬP</label>
-                                        <input type="text" class="form-control" id="ten_dang_nhap" name="ten_dang_nhap" placeholder="Tên đăng nhập"> 
+                                        <input type="text" class="form-control" id="ten_dang_nhap" name="ten_dang_nhap" placeholder="Tên đăng nhập" required=""> 
                                     </div>
                                     <div class="form-group">
                                         <label for="mat_khau">MẬT KHẨU</label>
-                                        <input type="text" class="form-control" id="mat_khau" name="mat_khau" placeholder="Mật khẩu"> 
+                                        <input type="text" class="form-control" id="mat_khau" name="mat_khau" placeholder="Mật khẩu" required=""> 
                                     </div>
                                     <div class="form-group">
                                         <label for="email">EMAIL</label>
-                                        <input type="email" class="form-control" id="email" name="email" placeholder="Email"> 
+                                        <input type="email" class="form-control" id="email" name="email" placeholder="Email" required=""> 
                                     </div>
                                     <div class="form-group">
                                         <label for="hinh_dai_dien">HÌNH ĐẠI DIỆN</label>
-                                        <input type="text" class="form-control" id="hinh_dai_dien" name="hinh_dai_dien" placeholder="Hình đại diện"> 
+                                        <input type="text" class="form-control" id="hinh_dai_dien" name="hinh_dai_dien" placeholder="Hình đại diện" required=""> 
                                     </div>
                                     <div class="form-group">
                                         <label for="diem_cao_nhat">ĐIỂM CAO NHẤT</label>
-                                        <input type="number" class="form-control" id="diem_cao_nhat" name="diem_cao_nhat" placeholder="Điểm cao nhất"> 
+                                        <input type="number" class="form-control" id="diem_cao_nhat" name="diem_cao_nhat" placeholder="Điểm cao nhất" required=""> 
                                     </div>
                                     <div class="form-group">
                                         <label for="credit">CREDIT</label>
-                                        <input type="number" class="form-control" id="credit" name="credit" placeholder="Credit"> 
+                                        <input type="number" class="form-control" id="credit" name="credit" placeholder="Credit" required=""> 
                                     </div>
                                    
                                      <button type="sumit" class="btn btn-success waves-effect waves-light">

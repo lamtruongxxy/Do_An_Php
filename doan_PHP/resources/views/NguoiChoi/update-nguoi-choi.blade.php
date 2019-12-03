@@ -81,12 +81,32 @@
                         <div class="card">
                             <div class="card-body">
                              
-                                <h3 class="mb-3 header-title"> CẬP NHẬT LĨNH VỰC </h3>
-                                <form action="{{ route('linh-vuc.xl-cap-nhat',['id'=> $linhVuc->id]) }}"method="POST">                            
+                                <h3 class="mb-3 header-title"> CẬP NHẬT NGƯỜI CHƠI </h3>
+                                <form action="{{ route('nguoi-choi.xl-cap-nhat',['id'=> $nguoiChoi->id]) }}"method="POST">                            
                                     @csrf
+                                     <div class="form-group">
+                                        <label for="ten_dang_nhap">TÊN ĐĂNG NHẬP</label>
+                                        <input type="text" class="form-control" id="ten_dang_nhap" name="ten_dang_nhap" placeholder="Tên đăng nhập" value="{{ $nguoiChoi->ten_dang_nhap }}" required="" > 
+                                    </div>
                                     <div class="form-group">
-                                        <label for="ten_linh_vuc">TÊN LĨNH VỰC</label>
-                                        <input type="text" class="form-control" id="ten_linh_vuc" name="ten_linh_vuc" placeholder="Tên Lĩnh vực" value="{{ $linhVuc->ten_linh_vuc }}" required="" > 
+                                        <label for="mat_khau">MẬT KHẨU</label>
+                                        <input type="text" class="form-control" id="mat_khau" name="mat_khau" placeholder="Mật khẩu" value="{{ $nguoiChoi->mat_khau }}" required="" > 
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="email">EMAIL</label>
+                                        <input type="email" class="form-control" id="email" name="email" placeholder="Email" value="{{ $nguoiChoi->email }}" required="" > 
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="hinh_dai_dien">HÌNH ĐẠI DIỆN</label>
+                                        <input type="text" class="form-control" id="hinh_dai_dien" name="hinh_dai_dien" placeholder="Hình đại diện" value="{{ $nguoiChoi->hinh_dai_dien }}" required="" > 
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="diem_cao_nhat">ĐIỂM CAO NHẤT</label>
+                                        <input type="number" class="form-control" id="diem_cao_nhat" name="diem_cao_nhat" placeholder="Điểm cao nhất" value="{{ $nguoiChoi->diem_cao_nhat }}" required="" > 
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="credit">CREDIT</label>
+                                        <input type="number" class="form-control" id="credit" name="credit" placeholder="Credit" value="{{ $nguoiChoi->credit }}" required="" > 
                                     </div>
                                    
                                      <button type="sumit" class="btn btn-success waves-effect waves-light" id="luu-thanh-cong">

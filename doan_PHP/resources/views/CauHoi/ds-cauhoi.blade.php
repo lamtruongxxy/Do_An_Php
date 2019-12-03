@@ -75,10 +75,13 @@
                                                 <td>{{ $cauHoi->phuong_an_d }}</td>
                                                 <td>{{ $cauHoi->dap_an }}</td>
                                                 <td>
-                                                    <a  href="" type="button" class="btn btn-danger waves-effect waves-light"><i class="mdi mdi-trash-can-outline"></i></a>
-
-                                                    <a href="{{ route('cau-hoi.cap-nhat', ['id'=>$cauHoi->id ]) }}" type="button" class="btn btn-info waves-effect waves-light">
-                                                        <i class="mdi mdi-pen-minus"></i></a>
+                                                    <form action="{{ route('cau-hoi.xoa',['id'=>$cauHoi->id]) }}" method="POST">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <a href="{{ route('cau-hoi.cap-nhat', ['id'=>$cauHoi->id ]) }}" class="btn btn-info waves-effect waves-light">
+                                                        <i class="mdi mdi-pen-minus">Sửa</i></a>
+                                                    <button type="sumit" class="btn btn-danger waves-effect waves-light"><i class="mdi mdi-trash-can-outline">Xóa</i></a>
+                                                    </form>    
                                                 </td>
                                             </tr>
                                             @endforeach
@@ -97,7 +100,7 @@
                                     @csrf
                                     <div class="form-group">
                                         <label for="noi_dung">NỘI DUNG</label>
-                                        <input type="text" class="form-control" id="noi_dung" name="noi_dung" placeholder="Nội dung">
+                                        <input type="text" class="form-control" id="noi_dung" name="noi_dung" placeholder="Nội dung" required="">
                                     </div>
 
                                      <div class="form-group">
@@ -112,21 +115,21 @@
 
                                     <div class="form-group">
                                         <label for="phuong_an_a">PHƯƠNG ÁN A</label>
-                                        <input type="text" class="form-control" id="phuong_an_a" name="phuong_an_a" placeholder="Phương án a">
+                                        <input type="text" class="form-control" id="phuong_an_a" name="phuong_an_a" placeholder="Phương án a" required="">
                                     </div>
 
                                     <div class="form-group">
                                         <label for="phuong_an_b">PHƯƠNG ÁN B</label>
-                                        <input type="text" class="form-control" id="phuong_an_b" name="phuong_an_b" placeholder="Phương án b">
+                                        <input type="text" class="form-control" id="phuong_an_b" name="phuong_an_b" placeholder="Phương án b" required="">
                                     </div>                       
                                     <div class="form-group">
                                         <label for="phuong_an_c">PHƯƠNG ÁN C</label>
-                                        <input type="text" class="form-control" id="phuong_an_c" name="phuong_an_c" placeholder="Phương án c">
+                                        <input type="text" class="form-control" id="phuong_an_c" name="phuong_an_c" placeholder="Phương án c" required="">
                                     </div>
 
                                     <div class="form-group">
                                         <label for="phuong_an_d">PHƯƠNG ÁN D</label>
-                                        <input type="text" class="form-control" id="phuong_an_d" name="phuong_an_d" placeholder="Phương án d">
+                                        <input type="text" class="form-control" id="phuong_an_d" name="phuong_an_d" placeholder="Phương án d" required="">
                                     </div>
 
                                     <div class="form-group">

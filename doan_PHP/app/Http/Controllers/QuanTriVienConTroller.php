@@ -16,7 +16,8 @@ class QuanTriVienConTroller extends Controller
      */
     public function index()
     {
-        //
+        $listQuanTriVien = QuanTriVien::all();
+        view('partials/navigation',compact('listQuanTriVien'));
     }
 
     /**

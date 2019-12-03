@@ -13,8 +13,10 @@ class ThemQuanTriVien extends Seeder
     public function run()
     {
     	$listQTV = [
-            ['ten_dang_nhap'=>'admin','mat_khau'=>Hash::make('123456'),'ho_ten'=>'Quan tri vien 1'],
-            ['ten_dang_nhap'=>'adminn','mat_khau'=>Hash::make('1234567'),'ho_ten'=>'Quan tri vien 2'],
+            ['ten_dang_nhap'=>'anhtu','mat_khau'=>Hash::make('anhtu99'),'ho_ten'=>'Do Anh Tu'],
+            ['ten_dang_nhap'=>'lamtruong','mat_khau'=>Hash::make('lamtruong99'),'ho_ten'=>'Le Hong Lam Truong'],
+            ['ten_dang_nhap'=>'quockhanh','mat_khau'=>Hash::make('quockhanh99'),'ho_ten'=>'Nguyen Quoc Khanh'],
+            
         ];
         //
         foreach ($listQTV as $qtv) {

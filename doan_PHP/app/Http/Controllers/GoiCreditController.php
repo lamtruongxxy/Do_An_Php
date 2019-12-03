@@ -48,6 +48,7 @@ class GoiCreditController extends Controller
         $goiCredit->so_tien=$request->so_tien;
 
         $goiCredit->save();
+        
         return redirect()->route('goi-credit.danh-sach');
     }
 
@@ -104,8 +105,21 @@ class GoiCreditController extends Controller
      */
     public function destroy($id)
     {
-        $goiCredit=GoiCredit::find($id);
-        $goiCredit->Delete();
+        $goiCredit=GoiCredit::findOrFail($id);
+        $xoaGoiCredit=$goiCredit->delete();
+        if($xoaGoiCredit){
+            return redirect()->route('goi-credit.danh-sach');
+        }
+        return redirect()->route('goi-credit.danh-sach');
+    }
+    public function trashList()// Danh Sách đã xóa
+    {
+        $trashGoiCredit=GoiCredit::onlyTrashed()->get();
+        return view('GoiCredit/trash-goi-credit',compact('trashGoiCredit'));
+    }
+    public function restore($id)// Khôi phục
+    {
+        $goiCredit=GoiCredit::onlyTrashed()->findOrFail($id)->restore();
         return redirect()->route('goi-credit.danh-sach');
     }
 }

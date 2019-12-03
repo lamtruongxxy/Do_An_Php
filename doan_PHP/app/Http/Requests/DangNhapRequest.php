@@ -25,14 +25,15 @@ class DangNhapRequest extends FormRequest
     {
         return [
             'ten_dang_nhap' =>'required',
-            'mat_khau'      => 'required|min:6'
+            'mat_khau'      => 'required|min:6|alpha_num'
         ];
     }
      public function messages(){
             return[
                 'ten_dang_nhap.required' => 'Chưa nhập tên đăng nhập ',
                 'mat_khau.required'      => 'Chưa nhập mật khẩu ',
-                'mat_khau.min'           => 'Mật khẩu ít nhất 6 ký tự'
+                'mat_khau.min'           => 'Mật khẩu ít nhất 6 ký tự',
+                'mat_khau.alpha_num'     => 'Mật khẩu chỉ là chữ và số'
             ];
         }
 }
