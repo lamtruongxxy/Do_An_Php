@@ -13,9 +13,20 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+
+Route::post('dang-nhap','API\LoginController@dangNhap');
+
+Route::middleware(['assign.guard:api','jwt.auth'])->group(function(){
+
+    //lay thong người dùng đăng nhập
+    Route::get('lay-thong-tin','API\LoginController@layThongTin');
+
+    //lay danh sach nguoi choi
+    Route::get('nguoi-choi','API\NguoiChoiAPI@layDanhSach');
+
+    //lay danh sach linh vuc
+    Route::get('linh-vuc','API\LinhVucAPI@layDanhSach');
 });
 
-Route::get('nguoi-choi','API\NguoiChoiAPI@layDanhSach');
-Route::get('linh-vuc','API\LinhVucAPI@layDanhSach');
+
+

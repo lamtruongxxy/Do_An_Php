@@ -12,8 +12,8 @@ class LinhVucAPI extends Controller
     {
     	$listLinhVuc =LinhVuc::all();
     	$result=[
-    		'success' => true;
-    		'data'    => $listLinhVuc;
+    		'success' => true,
+    		'data'    => $listLinhVuc,
     	];
     	return response()->json($result);
     }

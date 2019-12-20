@@ -105,11 +105,12 @@
 @section('main-content')
 
     <div class="row">
-                <div class="col-8">
+                    <div class="col-8">
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="header-title">DANH SÁCH GÓI CREDITS</h4>
-                                <table id="Credit-datatable" class="table dt-responsive nowrap">
+                                <h4 class="header-title">DANH SÁCH LĨNH VỰC</h4>
+                                <p class="text-muted font-13 mb-4"></p>
+                                <table id="Linh-vuc-datatable" class="table dt-responsive nowrap">
                                     <thead>
                                         <tr>
                                             <th>ID</th>
@@ -154,7 +155,7 @@
                                         <label for="ten_linh_vuc">TÊN LĨNH VỰC</label>
                                         <input type="text" class="form-control" id="ten_linh_vuc" name="ten_linh_vuc" placeholder="Tên Lĩnh vực" required=""> 
                                     </div>
-                                    <button type="submit" class="btn btn-success waves-effect waves-light">
+                                    <button type="submit" class="btn btn-success waves-effect waves-light" id='luu-thanh-cong'>
                                             <span class="btn-label"><i class="fe-plus"></i></span>Thêm
                                         </button>  
                                 </form>
