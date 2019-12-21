@@ -21,11 +21,22 @@ Route::middleware(['assign.guard:api','jwt.auth'])->group(function(){
     //lay thong người dùng đăng nhập
     Route::get('lay-thong-tin','API\LoginController@layThongTin');
 
-    //lay danh sach nguoi choi
-    Route::get('nguoi-choi','API\NguoiChoiAPI@layDanhSach');
+    Route::prefix('nguoi-choi')->group(function(){
+    //Lay toan bộ danh sách người chơi    
+    Route::get('/','API\NguoiChoiAPI@layAllDSNguoiCHoi'); 
+    
+    //Lay toàn bộ danh sách người chơi xếp hạng theo điểm giảm dần
+    Route::get('/xep-hang','API\NguoiChoiAPI@layDanhSachXepHang');
+
+    //Lay 1 người chơi theo id
+    Route::get('/{id}','API\NguoiChoiAPI@layMotNguoiChoi');
+    });
+
+    Route::get('cau-hoi','API\CauHoiAPI@layDanhSachCauHoi');
 
     //lay danh sach linh vuc
     Route::get('linh-vuc','API\LinhVucAPI@layDanhSach');
+
 });
 
 
