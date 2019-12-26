@@ -8,7 +8,7 @@ use App\NguoiChoi;
 
 class NguoiChoiAPI extends Controller
 {
-    public function layDanhSach(Request $request) {
+    public function layDanhSachXepHang(Request $request) {
     	$page = $request->query('page', 1);
     	$limit = $request->query('limit', 25);
 
@@ -18,5 +18,25 @@ class NguoiChoiAPI extends Controller
     		'total'	=> NguoiChoi::count(),
     		'data'	=> $listNguoiChoi
     	]);
-    }
+	}
+
+	public function layAllDSNguoiCHoi()
+	{
+		$dsNguoiChoi= NguoiChoi::all();
+		$ketqua = [
+			'success'  => true,
+			'data'     => $dsNguoiChoi
+		];
+		return response()->json($ketqua);
+	}
+
+	public function layMotNguoiChoi($id)
+	{
+		$dsNguoiChoi= NguoiChoi::find($id);
+		$ketqua = [
+			'success'  => true,
+			'data'     => $dsNguoiChoi
+		];
+		return response()->json($ketqua);
+	}
 }

@@ -21,21 +21,42 @@ Route::middleware(['assign.guard:api','jwt.auth'])->group(function(){
     //lay thong người dùng đăng nhập
     Route::get('lay-thong-tin','API\LoginController@layThongTin');
 
-    Route::prefix('nguoi-choi')->group(function(){
-    //Lay toan bộ danh sách người chơi    
-    Route::get('/','API\NguoiChoiAPI@layAllDSNguoiCHoi'); 
-    
-    //Lay toàn bộ danh sách người chơi xếp hạng theo điểm giảm dần
-    Route::get('/xep-hang','API\NguoiChoiAPI@layDanhSachXepHang');
-
-    //Lay 1 người chơi theo id
-    Route::get('/{id}','API\NguoiChoiAPI@layMotNguoiChoi');
-    });
-
-    Route::get('cau-hoi','API\CauHoiAPI@layDanhSachCauHoi');
-
     //lay danh sach linh vuc
     Route::get('linh-vuc','API\LinhVucAPI@layDanhSach');
+
+    Route::prefix('nguoi-choi')->group(function(){
+
+        //Lay toan bộ danh sách người chơi 
+        Route::get('/','API\NguoiChoiAPI@layAllDSNguoiCHoi'); 
+    
+        //Lay toàn bộ danh sách người chơi xếp hạng theo điểm giảm dần
+        Route::get('/xep-hang','API\NguoiChoiAPI@layDanhSachXepHang');
+
+        //Lay 1 người chơi theo id
+        Route::get('/{id}','API\NguoiChoiAPI@layMotNguoiChoi');
+    });
+
+    //Lấy danh sách câu hỏi
+    Route::get('cau-hoi','API\CauHoiAPI@layDanhSachCauHoi');
+ 
+    //Lấy câu hỏi theo id
+    Route::get('cau-hoi/{id}','API\CauHoiAPI@layMotCauHoi');
+
+    Route::prefix('goi-credit')->group(function(){
+
+        //Lấy danh sách gói credit
+        Route::get('/','API\GoiCreditAPI@danhSachGoiCredit');
+
+        //Lấy danh sách gói credit theo id
+        Route::get('/{id}','API\GoiCreditAPI@goiCreditTheoID');
+
+        //Mua gói credit
+        Route::post('/mua-goi','API\GoiCreditAPI@muaGoiCredit');
+
+    });
+
+    //Lưu lại lượt chơi
+    Route::post('luu-luot-choi','API\LuotChoiAPI@luuLuotChoi');
 
 });
 

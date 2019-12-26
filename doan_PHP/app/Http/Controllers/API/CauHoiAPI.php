@@ -17,4 +17,14 @@ class CauHoiAPI extends Controller
             ];
             return response()->json($ketqua);
     }
+
+    public function layMotCauHoi($id)
+    {
+        $dsCauHoi = CauHoi::find($id);
+        $ketqua = [
+                'success' => true,
+                'data'    => $dsCauHoi,
+            ];
+            return response()->json($ketqua);
+    }
 }
