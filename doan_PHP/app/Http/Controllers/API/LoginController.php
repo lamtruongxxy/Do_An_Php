@@ -21,20 +21,33 @@ class LoginController extends Controller
     		// nếu sai ten dang nhap hoac mat khau
     		return response()->json([
     			'status'  => false,
-    			'message' => 'Unauthorized. '// khong dươc phép
+    			'message' => 'Đăng nhập không thành công '// khong dươc phép
     		], 401);
     	}
     	// chứng thực thành công
     	return response()->json([
     		'status'  => true,
-    		'message' =>'Authorized.',
+    		'message' =>'Đăng nhập thành công',
     		'token'   => $token,
     		'type'    => 'bearer', //có thể bỏ
     		'expires' => auth('api')->factory()->getTTL() * 30
     	], 200); //có thể bỏ
-    }
+	}
+	
+	public function dangXuat()
+    {
+        auth('api')->logout();
+        $res = [
+            'success'   => true,
+            'msg'       => 'Đăng xuất thành công'
+        ];
+        return response()->json($res);
+	}
+	
     public function layThongTin()
     {
     	return auth('api')->user();
-    }
+	}
+
+	
 }

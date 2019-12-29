@@ -56,7 +56,7 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-6">
-                        2019 &copy; Upvex theme by <a href="">Coderthemes</a> 
+                        2019 &copy; <a href="">Anh.Tu, L.Truong, Q.Khanh</a> 
                     </div>
                     <div class="col-md-6">
                         <div class="text-md-right footer-links d-none d-sm-block">

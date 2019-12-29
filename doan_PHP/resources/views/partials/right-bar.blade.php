@@ -13,24 +13,16 @@
                         <a href="javascript:void(0);" class="user-edit"><i class="mdi mdi-pencil"></i></a>
                     </div>
             
-                    <h5><a href="javascript: void(0);">AnhTu.Do</a> </h5>
-                    <p class="text-muted mb-0"><small>Product Owner</small></p>
+                    <h5><a href="javascript: void(0);">
+                    @auth
+                    {{ Auth()->user()->ho_ten }}
+                    </a>
+                    </h5>
+                    <p class="text-muted mb-0"><small>{{ Auth()->user()->ten_dang_nhap}}</small></p>
+                    @endauth
                 </div>
 
                 <!-- Settings -->
-                <hr class="mt-0" />
-                <div class="row">
-                    <div class="col-6 text-center">
-                        <h4 class="mb-1 mt-0">8,504</h4>
-                        <p class="m-0">Balance</p>
-                    </div>
-                    <div class="col-6 text-center">
-                        <h4 class="mb-1 mt-0">8,504</h4>
-                        <p class="m-0">Balance</p>
-                    </div>
-                </div>
-                <hr class="mb-0" />
-
                 <div class="p-3">
                     <div class="custom-control custom-switch mb-2">
                         <input type="checkbox" class="custom-control-input" id="customSwitch1" checked>
@@ -56,11 +48,7 @@
                 <hr class="mb-0" />
                 <div class="p-3">
                     <div class="inbox-widget">
-                        <div class="inbox-item">
-                            <div class="inbox-item-img"><img src="{{ asset('assets/images/users/user-2.jpg') }}" class="rounded-circle" alt=""></div>
-                            <p class="inbox-item-author"><a href="javascript: void(0);" class="text-dark">Tomaslau</a></p>
-                            <p class="inbox-item-text">I've finished it! See you so...</p>
-                        </div>
+                        
                         <div class="inbox-item">
                             <div class="inbox-item-img"><img src="{{ asset('assets/images/users/user-3.jpg') }}" class="rounded-circle" alt=""></div>
                             <p class="inbox-item-author"><a href="javascript: void(0);" class="text-dark">Stillnotdavid</a></p>

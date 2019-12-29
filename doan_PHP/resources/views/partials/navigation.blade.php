@@ -39,7 +39,6 @@
                                 <span class="badge badge-danger rounded-circle noti-icon-badge">5</span>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right dropdown-lg">
-
                                 <!-- item-->
                                 <div class="dropdown-item noti-title">
                                     <h5 class="m-0">
@@ -128,7 +127,9 @@
                             <a class="nav-link dropdown-toggle nav-user mr-0 waves-effect" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
                                 <img src="{{ asset('assets/images/users/user-11.jpg') }}" alt="user-image" class="rounded-circle">
                                 <span class="pro-user-name ml-1">
-                                    AnhTu.Do <i class="mdi mdi-chevron-down"></i> 
+                                    @auth
+                                    {{ Auth()->user()->ho_ten }}
+                                    @endauth 
                                 </span>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right profile-dropdown ">
@@ -140,23 +141,10 @@
                                 </div>
 
                                 <!-- item-->
-                                <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                <a href="" class="dropdown-item notify-item">
                                     <i class="fe-user"></i>
-                                    <span>My Account</span>
+                                    <span>All admin </span>
                                 </a>
-
-                                <!-- item-->
-                                <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                    <i class="fe-settings"></i>
-                                    <span>Settings</span>
-                                </a>
-
-                                <!-- item-->
-                                <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                    <i class="fe-lock"></i>
-                                    <span>Lock Screen</span>
-                                </a>
-
                                 <div class="dropdown-divider"></div>
 
                                 <!-- item-->
@@ -288,10 +276,10 @@
                                     </ul>
                                 </li>
                             <li class="has-submenu">
-                                <a href="aaa"> <i class="mdi mdi-history"></i>Lịch sử mua credit<div class="arrow-down"></div></a>
+                                <a href="{{ route('lich-su-mua-credit.danh-sach') }}"> <i class="mdi mdi-history"></i>Lịch sử mua credit<div class="arrow-down"></div></a>
                                 <ul class="submenu">
                                     <li>
-                                        <a href="aaa">Danh sách & thêm mới </a>
+                                        <a href="{{ route('lich-su-mua-credit.danh-sach') }}">Danh sách & thêm mới </a>
                                     </li>
                                 </ul>
                             </li>

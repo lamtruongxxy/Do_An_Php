@@ -18,7 +18,7 @@
         <!-- third party js ends -->
     <script type="text/javascript">
         $(document).ready(function()
-            {$("#Credit-datatable").DataTable({
+            {$("#datatable").DataTable({
                 language:{
                     paginate:{
                         previous:"<i class='mdi mdi-chevron-left'>",
@@ -49,7 +49,7 @@
                         <div class="card">
                             <div class="card-body">
                                 <h4 class="header-title">DANH SÁCH GÓI CREDITS</h4>
-                                <table id="Credit-datatable" class="table dt-responsive nowrap">
+                                <table id="datatable" class="table dt-responsive nowrap">
                                     <thead>
                                         <tr>
                                             <th>ID</th>

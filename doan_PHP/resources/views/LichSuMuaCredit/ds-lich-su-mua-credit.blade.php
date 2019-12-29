@@ -37,38 +37,7 @@
                     }
                 });
             });
-        </script>
-
-        <script type="text/javascript">
-            //THÔNG BÁO LƯU DỮ LIỆU THÀNH CÔNG
-           ! function(p) {
-                "use strict";
-                var t = function() {};
-                t.prototype.send = function(t, i, o, e, n, a, s, r) {
-                    a || (a = 3e3), s || (s = 1);
-                    var c = {
-                        heading: t,
-                        text: i,
-                        position: o,
-                        loaderBg: e,
-                        icon: n,
-                        hideAfter: a,
-                        stack: s
-                    };
-                    r && (c.showHideTransition = r), console.log(c), p.toast().reset("all"), p.toast(c)
-                }, p.NotificationApp = new t, p.NotificationApp.Constructor = t
-            }(window.jQuery),
-            function(i) {
-                "use strict";
-                i("#luu-thanh-cong").on("click", function(t) {
-                    i.NotificationApp.send("THÀNH CÔNG", "KHÔI HỒI DỮ LIỆU THÀNH CÔNG", "top-right", "#5ba035", "success")
-                })
-            }(window.jQuery);
-
-    </script>
-
-
-       
+        </script>  
 @endsection
 
 @section('css')
@@ -84,34 +53,32 @@
 @endsection
 
 @section('main-content')
-
-<div class="row">
-                    <div class="col-10">
+    <div class="row">
+                    <div class="col-12">
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="header-title">DANH SÁCH CÂU HỎI ĐÃ XÓA</h4>
+                                <h4 class="header-title">DANH SÁCH GÓI CREDIT ĐÃ ĐƯỢC MUA</h4>
                                 <p class="text-muted font-13 mb-4"></p>
                                 <table id="datatable" class="table dt-responsive nowrap">
                                     <thead>
                                         <tr>
-                                            <th>ID</th>
-                                            <th>Nội dung</th>
-                                            <th>Lĩnh vực</th>
-                                            <th>Thời gian xóa</th>
-                                            <th></th>
+                                        <th>ID</th>
+                                        <th>Tên người chơi</th>
+                                        <th>Gói credit</th>
+                                        <th>Credit</th>
+                                        <th>Số tiền</th>
+                                        <th>Thời gian mua</th>
                                         </tr>
                                     </thead>
-                                
                                     <tbody>
-                                    	@foreach($trashCauHoi as $cauHoi)
+                                    	@foreach($dsLichSuMuaCredit as $lichsu)
                                         <tr>
-                                            <td>{{ $cauHoi->id }} </td>
-                                            <td>{{ $cauHoi->noi_dung}}</td>
-                                            <td>{{ $cauHoi->linhVuc->ten_linh_vuc }}</td>
-                                            <td>{{ $cauHoi->deleted_at}}</td>
-                                            <td> 
-                                                <a href="{{ route('cau-hoi.restore', ['id'=>$cauHoi->id ]) }}" class="btn btn-info waves-effect waves-light" id="luu-thanh-cong" ><i class="fe-chevrons-up"> Khôi phục</i></a>
-                                            </td>
+                                            <td>{{ $lichsu->id }}</td>
+                                            <td>{{ $lichsu->nguoiChoi->ten_dang_nhap }}</td>
+                                            <td>{{ $lichsu->goiCredit->ten_goi }}</td>
+                                            <td>{{ $lichsu->credit }}</td>
+                                            <td>{{ $lichsu->so_tien }}</td>
+                                            <td>{{ $lichsu->created_at }}</td>
                                         </tr>
                                         @endforeach
                                     </tbody>
@@ -120,5 +87,4 @@
                             </div> <!-- end card body-->
                         </div> <!-- end card -->
                     </div><!-- end col-->
-                </div>
 @endsection 

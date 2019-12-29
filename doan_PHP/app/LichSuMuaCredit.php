@@ -6,5 +6,16 @@ use Illuminate\Database\Eloquent\Model;
 
 class LichSuMuaCredit extends Model
 {
-    //
+    protected $table = 'lich_su_mua_credits';
+
+    public function nguoiChoi()
+    {
+        return $this->belongsTo("App\NguoiChoi");
+    }
+
+    public function goiCredit()
+    {
+        return $this->belongsTo("App\GoiCredit");
+    }
 }
+

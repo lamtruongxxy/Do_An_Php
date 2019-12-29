@@ -18,7 +18,7 @@
         <!-- third party js ends -->
         <script type="text/javascript">
         $(document).ready(function()
-        {$("#Cau-hoi-datatable").DataTable({
+        {$("#datatable").DataTable({
             language:{
                 paginate:{
                     previous:"<i class='mdi mdi-chevron-left'>",
@@ -49,7 +49,7 @@
                             <div class="card-body">
                                 <h4 class="header-title">DANH SÁCH CÂU HỎI</h4>
                                 <p class="text-muted font-13 mb-4">
-                                    <table id="Cau-hoi-datatable" class="table dt-responsive nowrap">
+                                    <table id="datatable" class="table dt-responsive nowrap">
                                         <thead>
                                             <tr>
                                                 <th>ID</th>

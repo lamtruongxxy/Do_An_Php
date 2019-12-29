@@ -18,7 +18,7 @@
         <!-- third party js ends -->
         <script type="text/javascript">
         $(document).ready(function()
-        {$("#Linh-vuc-datatable").DataTable({
+        {$("#datatable").DataTable({
             language:{
                 paginate:{
                     previous:"<i class='mdi mdi-chevron-left'>",
@@ -50,7 +50,7 @@
                                 <h4 class="header-title">DANH SÁCH NGƯỜI CHƠI</h4>
                             
 
-                                <table id="Linh-vuc-datatable" class="table dt-responsive nowrap">
+                                <table id="datatable" class="table dt-responsive nowrap">
                                     <thead>
                                         <tr>
                                             <th>ID</th>

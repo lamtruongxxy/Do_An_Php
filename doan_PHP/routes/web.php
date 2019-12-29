@@ -47,7 +47,7 @@ Route::middleware('auth')->group(function()
 	Route::prefix("cau-hoi")->group(function(){
 		Route::name("cau-hoi.")->group(function(){
 
-			Route::get('/danh-sach','CauHoiController@index')->name('danh-sach');
+			Route::get('/','CauHoiController@index')->name('danh-sach');
 
 			Route::get('/them-moi','CauHoiController@create')->name("them-moi");
 			Route::post('/them-moi','CauHoiController@store')->name("post-them-moi");
@@ -98,6 +98,9 @@ Route::prefix("goi-credit")->group(function(){
 		Route::get('/khoi-phuc/{id}','GoiCreditController@restore')->name('restore');
 	});
 });
+
+//LICH_SU_MUA_CREDIT
+Route::get('lich-su-mua-credit/', 'LichSuMuaCreditController@index')->name('lich-su-mua-credit.danh-sach');
 
 });
 
