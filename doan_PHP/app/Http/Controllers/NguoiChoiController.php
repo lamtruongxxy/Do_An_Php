@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\NguoiChoi;
+use Illuminate\Support\Facades\Hash;
 class NguoiChoiController extends Controller
 {
     /**
@@ -34,15 +35,20 @@ class NguoiChoiController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+    //public function maHoa(Request $request)
+    //{
+        //return Hash::make($request->mat_khau);
+    //}
+
     public function store(Request $request)
     {
         $nguoiChoi= new NguoiChoi;
-        $nguoiChoi->ten_dang_nhap=$request->ten_dang_nhap;
-        $nguoiChoi->mat_khau=$request->mat_khau;
-        $nguoiChoi->email=$request->email;
-        $nguoiChoi->hinh_dai_dien=$request->hinh_dai_dien;
-        $nguoiChoi->diem_cao_nhat=$request->diem_cao_nhat;
-        $nguoiChoi->credit=$request->credit;
+        $nguoiChoi->ten_dang_nhap = $request->ten_dang_nhap;
+        $nguoiChoi->mat_khau = Hash::make($request->mat_khau);
+        $nguoiChoi->email = $request->email;
+        $nguoiChoi->hinh_dai_dien = $request->hinh_dai_dien;
+        $nguoiChoi->diem_cao_nhat = $request->diem_cao_nhat;
+        $nguoiChoi->credit = $request->credit;
         $nguoiChoi->save();
         return back();
     }

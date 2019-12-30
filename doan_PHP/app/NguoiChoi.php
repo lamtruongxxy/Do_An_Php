@@ -13,11 +13,21 @@ class NguoiChoi extends Authenticatable implements JWTSubject
     
     protected $table='nguoi_chois';
 
+    protected $fillable = [
+        'ten_dang_nhap', 
+        'mat_khau', 
+        'email',
+        'hinh_dai_dien', 
+        'diem_cao_nhat', 
+        'credit'
+    ];
+
     protected $hidden = ['mat_khau'];
 
     //Tao Attribute moi co ten là password
+    
     public function getPasswordAttribute()
-    {
+    {   
     	return $this->mat_khau;
     }
     public function getJWTIdentifier()
@@ -28,4 +38,5 @@ class NguoiChoi extends Authenticatable implements JWTSubject
     {
     	return [];	
     }
+    
 }
