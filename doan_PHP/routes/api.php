@@ -41,12 +41,12 @@ Route::middleware(['assign.guard:api','jwt.auth'])->group(function(){
         //Mua gói credit
         Route::post('/mua-goi','API\GoiCreditAPI@muaGoiCredit');
     });
-    Route::prefix('lu-choi')->group(function(){
+    Route::prefix('luot-choi')->group(function(){
 
         //Load all Ds Chi Tiet Luot Choi
         Route::get('/chi-tiet','API\LuotChoiAPI@chiTietLuotChoi');
 
-        Route::post('luu-luot-choi','API\LuotChoiAPI@luuLuotChoi');
+        Route::post('/luu','API\LuotChoiAPI@luuLuotChoi');
     });
 
 });
