@@ -15,6 +15,7 @@ use Illuminate\Http\Request;
 
 
 Route::post('dang-nhap','API\LoginController@dangNhap');
+Route::post('dang-ky','API\LoginController@dangKy');
 
 Route::middleware(['assign.guard:api','jwt.auth'])->group(function(){
 
