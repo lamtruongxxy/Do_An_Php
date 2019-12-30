@@ -13,7 +13,7 @@ class LoginController extends Controller
     	//lay thong tin Nguoi choi cần dùng cho đăng nhập
     	$credentials = [
     		'ten_dang_nhap' => $req->ten_dang_nhap,
-    		'password' => $req->mat_khau,
+    		'password' => $req->password,
     	];
     	// chứng thực thất bại
     	if(!$token = auth('api')->attempt($credentials))
