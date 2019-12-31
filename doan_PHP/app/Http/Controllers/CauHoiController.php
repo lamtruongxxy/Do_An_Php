@@ -26,8 +26,7 @@ class CauHoiController extends Controller
      */
     public function create()
     {
-        $dsLinhVuc=LinhVuc::all();
-        return view('CauHoi/them-moi-cau-hoi',compact('dsLinhVuc'));
+      
     }
 
     /**

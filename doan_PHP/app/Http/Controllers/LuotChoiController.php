@@ -4,9 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\LichSuMuaCredit;
-
-class LichSuMuaCreditController extends Controller
+use App\LuotChoi;
+class LuotChoiController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +14,8 @@ class LichSuMuaCreditController extends Controller
      */
     public function index()
     {
-        $dsLichSuMuaCredit = LichSuMuaCredit::all();
-        return view('LichSuMuaCredit\ds-lich-su-mua-credit', compact('dsLichSuMuaCredit'));
+        $dsLuotChoi = LuotChoi::all();
+        return view('LuotChoi\ds-luot-choi',compact('dsLuotChoi'));
     }
 
     /**

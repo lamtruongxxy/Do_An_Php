@@ -99,6 +99,12 @@ Route::prefix("goi-credit")->group(function(){
 	});
 });
 
+//LUOT_CHOI
+Route::get('luot-choi/','LuotChoiController@index')->name('luot-choi.danh-sach');
+
+//CHI_TIET_LUOT_CHOI
+Route::get('chi-tiet-luot-choi/','ChiTietLuotChoiController@index')->name('chi-tiet-luot-choi.danh-sach');
+
 //LICH_SU_MUA_CREDIT
 Route::get('lich-su-mua-credit/', 'LichSuMuaCreditController@index')->name('lich-su-mua-credit.danh-sach');
 

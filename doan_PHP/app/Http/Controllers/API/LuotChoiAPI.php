@@ -10,14 +10,14 @@ class LuotChoiAPI extends Controller
 {
     public function chiTietLuotChoi(Request $request)
     {
-        $listChiTiet =ChiTietLuotChoi::all();
+        $listChiTiet = ChiTietLuotChoi::all();
     	$result=[
     		'success' => true,
     		'data'    => $listChiTiet,
     	];
     	return response()->json($result);
     }
-    
+
     public function luuLuotChoi (Request $request)
 	{
 		$luotChoi = [

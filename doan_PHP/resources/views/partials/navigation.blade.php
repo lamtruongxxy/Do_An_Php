@@ -222,8 +222,20 @@
                                         </ul>
                                     </ul>
                                 </li>
-                                
-                                <li class="has-submenu" >
+
+                            <li class="has-submenu">
+                                <a href="{{ route('goi-credit.danh-sach') }}"> <i class="la la-clone"></i>Gói credits <div class="arrow-down"></div></a>
+                                <ul class="submenu">
+                                    <li>
+                                        <a href="{{ route('goi-credit.danh-sach') }}">Danh sách & thêm mới </a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ route('goi-credit.trash') }}">Danh sách đã xóa</a>
+                                    </li>
+                                </ul>
+                            </li>
+
+                            <li class="has-submenu" >
                                 <a href="{{ route('nguoi-choi.danh-sach') }}"> <i class="fe-user"></i>Người chơi<div class="arrow-down"></div></a>
                                 <ul class="submenu megamenu" >
                                     <li>
@@ -238,38 +250,26 @@
                                     </li>
                                 </ul>
                             </li>
-
-                            <li class="has-submenu">
-                                <a href="{{ route('goi-credit.danh-sach') }}"> <i class="la la-clone"></i>Gói credits <div class="arrow-down"></div></a>
-                                <ul class="submenu">
-                                    <li>
-                                        <a href="{{ route('goi-credit.danh-sach') }}">Danh sách & thêm mới </a>
-                                    </li>
-                                    <li>
-                                        <a href="{{ route('goi-credit.trash') }}">Danh sách đã xóa</a>
-                                    </li>
-                                </ul>
-                            </li>
                             
                                 <li class="has-submenu">
-                                <a href="aaaa"> <i class="mdi mdi-format-line-weight"></i>Lượt chơi<div class="arrow-down"></div></a>
+                                <a href="{{ route('luot-choi.danh-sach') }}"> <i class="mdi mdi-format-line-weight"></i>Lượt chơi<div class="arrow-down"></div></a>
                                 <ul class="submenu megamenu">
                                     <li>
                                         <ul>
                                             <li>
-                                                <a href="aaaa">Danh sách & thêm mới</a>
+                                                <a href="{{ route('luot-choi.danh-sach') }}">Danh sách</a>
                                             </li>
                                         </ul>
                                     </li>
                                     </ul>
                                 </li>
                                  <li class="has-submenu">
-                                <a href="aaaa"> <i class="mdi mdi-format-list-checkbox"></i>Chi tiết lượt chơi<div class="arrow-down"></div></a>
+                                <a href="{{ route('chi-tiet-luot-choi.danh-sach') }}"> <i class="mdi mdi-format-list-checkbox"></i>Chi tiết lượt chơi<div class="arrow-down"></div></a>
                                 <ul class="submenu megamenu">
                                         <li>
                                         <ul>
                                             <li>
-                                                <a href="aaaa">Danh sách & thêm mới</a>
+                                                <a href="{{ route('chi-tiet-luot-choi.danh-sach') }}">Danh sách</a>
                                             </li>
                                         </ul>
                                         </li>
@@ -279,7 +279,7 @@
                                 <a href="{{ route('lich-su-mua-credit.danh-sach') }}"> <i class="mdi mdi-history"></i>Lịch sử mua credit<div class="arrow-down"></div></a>
                                 <ul class="submenu">
                                     <li>
-                                        <a href="{{ route('lich-su-mua-credit.danh-sach') }}">Danh sách & thêm mới </a>
+                                        <a href="{{ route('lich-su-mua-credit.danh-sach') }}">Danh sách</a>
                                     </li>
                                 </ul>
                             </li>

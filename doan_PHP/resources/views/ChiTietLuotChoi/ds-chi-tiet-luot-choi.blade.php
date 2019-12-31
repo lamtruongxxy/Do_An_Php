@@ -57,24 +57,26 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="header-title">DANH SÁCH LƯỢT CHƠI</h4>
+                                <h4 class="header-title">DANH SÁCH CHI TIẾT LƯỢT CHƠI</h4>
                                 <p class="text-muted font-13 mb-4"></p>
                                 <table id="datatable" class="table dt-responsive nowrap">
                                     <thead>
                                         <tr>
                                         <th>ID</th>
-                                        <th>Tên người chơi</th>
-                                        <th>Số câu</th>
+                                        <th>Lượt chơi</th>
+                                        <th>Câu hỏi</th>
+                                        <th>Phương án</th>
                                         <th>Điểm</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                    	@foreach($dsLuotChoi as $luotchoi)
+                                    	@foreach( $dsChiTietLuotChoi as $chitiet)
                                         <tr>
-                                            <td>{{ $luotchoi->id }}</td>
-                                            <td>{{ $luotchoi->nguoiChoi->ten_dang_nhap }}</td>
-                                            <td>{{ $luotchoi->so_cau }}</td>
-                                            <td>{{ $luotchoi->diem }}</td>
+                                            <td>{{ $chitiet->id }}</td>
+                                            <td>{{ $chitiet->luot_choi_id }}</td>
+                                            <td>{{ $chitiet->cau_hoi }}</td>
+                                            <td>{{ $chitiet->phuong_an }}</td>
+                                            <td>{{ $chitiet->diem }}</td>
                                         </tr>
                                         @endforeach
                                     </tbody>

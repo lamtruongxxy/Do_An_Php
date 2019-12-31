@@ -1,12 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\LichSuMuaCredit;
+use App\ChiTietLuotChoi;
 
-class LichSuMuaCreditController extends Controller
+class ChiTietLuotChoiController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +14,8 @@ class LichSuMuaCreditController extends Controller
      */
     public function index()
     {
-        $dsLichSuMuaCredit = LichSuMuaCredit::all();
-        return view('LichSuMuaCredit\ds-lich-su-mua-credit', compact('dsLichSuMuaCredit'));
+        $dsChiTietLuotChoi= ChiTietLuotChoi::all();
+        return view('ChiTietLuotChoi\ds-chi-tiet-luot-choi',compact('dsChiTietLuotChoi'));
     }
 
     /**
