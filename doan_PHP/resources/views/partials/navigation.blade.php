@@ -17,27 +17,7 @@
                             </a>
                             <!-- End mobile menu toggle-->
                         </li>
-
-                        <li class="d-none d-sm-block">
-                            <form class="app-search">
-                                <div class="app-search-box">
-                                    <div class="input-group">
-                                        <input type="text" class="form-control" placeholder="Search...">
-                                        <div class="input-group-append">
-                                            <button class="btn" type="submit">
-                                                <i class="fe-search"></i>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </form>
-                        </li>
-            
                         <li class="dropdown notification-list">
-                            <a class="nav-link dropdown-toggle  waves-effect" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
-                                <i class="fe-bell noti-icon"></i>
-                                <span class="badge badge-danger rounded-circle noti-icon-badge">5</span>
-                            </a>
                             <div class="dropdown-menu dropdown-menu-right dropdown-lg">
                                 <!-- item-->
                                 <div class="dropdown-item noti-title">
@@ -126,9 +106,9 @@
                         <li class="dropdown notification-list">
                             <a class="nav-link dropdown-toggle nav-user mr-0 waves-effect" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
                                 @auth
-                                <img src= 'assets/images/users/{{ Auth()->user()->hinh_anh_ad }}' alt="user-image" class="rounded-circle">
+                                <!--<img src="{{ asset('assets/images/users') }} / {{ Auth()->user()->hinh_anh_ad }}" alt="user-image" class="rounded-circle">-->
+                                <img src="{{ asset('assets/images/users/Tu.jpg') }}" alt="user-image" class="rounded-circle">
                                 <span class="pro-user-name ml-1">
-                                    
                                     {{ Auth()->user()->ho_ten }}
                                 @endauth 
                                 </span>
@@ -169,7 +149,7 @@
                     <div class="logo-box">
                         <a href="{{ route('dashboard') }}" class="logo text-center">
                             <span class="logo-lg">
-                                <img src="{{ asset('assets/images/logo-dark.png') }}" alt="" height="26">
+                                <img src="{{ asset('assets/images/logo-app.png') }}" alt="" height="26">
                                 <!-- <span class="logo-lg-text-dark">Upvex</span> -->
                             </span>
                             <span class="logo-sm">
