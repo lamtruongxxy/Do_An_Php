@@ -73,8 +73,8 @@
                                     	@foreach( $dsChiTietLuotChoi as $chitiet)
                                         <tr>
                                             <td>{{ $chitiet->id }}</td>
-                                            <td>{{ $chitiet->luot_choi_id }}</td>
-                                            <td>{{ $chitiet->cau_hoi }}</td>
+                                            <td>{{ $chitiet->luotChoi->id }}</td>
+                                            <td>{{ $chitiet->cauHoi->noi_dung }}</td>
                                             <td>{{ $chitiet->phuong_an }}</td>
                                             <td>{{ $chitiet->diem }}</td>
                                         </tr>

@@ -125,11 +125,12 @@
 
                         <li class="dropdown notification-list">
                             <a class="nav-link dropdown-toggle nav-user mr-0 waves-effect" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
-                                <img src="{{ asset('assets/images/users/user-11.jpg') }}" alt="user-image" class="rounded-circle">
+                                @auth
+                                <img src= 'assets/images/users/{{ Auth()->user()->hinh_anh_ad }}' alt="user-image" class="rounded-circle">
                                 <span class="pro-user-name ml-1">
-                                    @auth
+                                    
                                     {{ Auth()->user()->ho_ten }}
-                                    @endauth 
+                                @endauth 
                                 </span>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right profile-dropdown ">

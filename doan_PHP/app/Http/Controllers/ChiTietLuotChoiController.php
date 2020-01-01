@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\ChiTietLuotChoi;
-
 class ChiTietLuotChoiController extends Controller
 {
     /**
@@ -14,8 +13,11 @@ class ChiTietLuotChoiController extends Controller
      */
     public function index()
     {
-        $dsChiTietLuotChoi= ChiTietLuotChoi::all();
+        
+        $dsChiTietLuotChoi=ChiTietLuotChoi::all();
         return view('ChiTietLuotChoi\ds-chi-tiet-luot-choi',compact('dsChiTietLuotChoi'));
+        //$dsChiTietLuotChoi= ChiTietLuotChoi::all();
+        //return view('ChiTietLuotChoi\ds-chi-tiet-luot-choi',compact('dsChiTietLuotChoi'));
     }
 
     /**

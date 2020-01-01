@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class CauHoi extends Model
 {
 	use SoftDeletes;
-	protected $table='cau_hois';
+	protected $table = 'cau_hois';
     
     public function LinhVuc()
     {
