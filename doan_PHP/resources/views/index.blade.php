@@ -48,12 +48,9 @@
                     <div class="col-12">
                         <div class="card" style="background: #f2f3f6">
                             <div class="card-body" style="margin-top: 80px";>
-                                <h6 class="header-title" style="font-size: 130px;text-align: center;color: darkgrey;text-shadow: 3px 10px 20px darkgrey;">WELLCOM!</h6>
-
-                              
+                                <h6 class="header-title" style="font-size: 130px;text-align: center;color: darkgrey;text-shadow: 3px 10px 20px darkgrey;">WELLCOM!
+                                </h6> 
                         </div> 
                     </div>
                 </div>
-              
-
 @endsection

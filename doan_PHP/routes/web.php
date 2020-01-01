@@ -21,11 +21,12 @@ Route::post('dang-nhap','QuanTriVienController@xyLydangNhap')->name('xu-ly-dang-
 Route::middleware('auth')->group(function()
 {
 	//Trang chu
-	Route::get('/index','InDex@index')->name('dashboard');
+	Route::get('index','InDex@index')->name('dashboard');
 
 	//Dang xuat
-	Route::get('dang-nhap','QuanTriVienController@xyLydangXuat')-> name('xu-ly-dang-xuat');
-
+	Route::get('dang-xuat','QuanTriVienController@xyLydangXuat')-> name('xu-ly-dang-xuat');
+	//ALL ADMIN
+	Route::get('all-admin','QuanTriVienController@index')->name('all-admin');
 	//-Linh Vuc
 	Route::prefix('linh-vuc')->group(function(){
 		Route::name('linh-vuc.')->group(function(){

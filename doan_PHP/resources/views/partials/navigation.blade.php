@@ -142,7 +142,7 @@
                                 </div>
 
                                 <!-- item-->
-                                <a href="" class="dropdown-item notify-item">
+                                <a href="{{ route('all-admin') }}" class="dropdown-item notify-item">
                                     <i class="fe-user"></i>
                                     <span>All admin </span>
                                 </a>

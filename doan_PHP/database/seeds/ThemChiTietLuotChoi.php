@@ -14,21 +14,21 @@ class ThemChiTietLuotChoi extends Seeder
         ChiTietLuotChoi::create(
             [
                 'luot_choi_id' => App\LuotChoi::pluck('id')->random(),
-                'cau_hoi'   => App\CauHoi::pluck('id')->random(),
+                'cau_hoi_id'   => App\CauHoi::pluck('id')->random(),
                 'phuong_an'    => App\CauHoi::pluck('dap_an')->random(),
                 'diem'       => rand(0,10000)
             ]);
         ChiTietLuotChoi::create(
             [
                 'luot_choi_id' => App\LuotChoi::pluck('id')->random(),
-                'cau_hoi'   => App\CauHoi::pluck('id')->random(),
+                'cau_hoi_id'   => App\CauHoi::pluck('id')->random(),
                 'phuong_an'    => App\CauHoi::pluck('dap_an')->random(),
                 'diem'       => rand(0,10000)
             ]); 
         ChiTietLuotChoi::create(
             [
                 'luot_choi_id' => App\LuotChoi::pluck('id')->random(),
-                'cau_hoi'   => App\CauHoi::pluck('id')->random(),
+                'cau_hoi_id'   => App\CauHoi::pluck('id')->random(),
                 'phuong_an'    => App\CauHoi::pluck('dap_an')->random(),
                 'diem'       => rand(0,10000)
             ]);                

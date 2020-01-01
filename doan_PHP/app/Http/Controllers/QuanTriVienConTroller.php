@@ -14,10 +14,11 @@ class QuanTriVienConTroller extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    
     public function index()
     {
         $listQuanTriVien = QuanTriVien::all();
-        view('partials/navigation',compact('listQuanTriVien'));
+        return view('admin',compact('listQuanTriVien'));
     }
 
     /**
