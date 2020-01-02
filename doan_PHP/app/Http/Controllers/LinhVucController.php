@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\LinhVuc;
 use App\CauHoi;
+use App\Http\Requests\LinhVucRequest;
 class LinhVucController extends Controller
 {
     /**
@@ -16,10 +17,10 @@ class LinhVucController extends Controller
     public function index()
     {
         $linhVucs=LinhVuc::all();
-        $trash=DB::table('linh_vucs')->whereNotNull('deleted_at')->get();
-        return view('LinhVuc/ds-linhvuc',['linhVucs'=>$linhVucs,'trash'=>$trash]);
+        //$trash=DB::table('linh_vucs')->whereNotNull('deleted_at')->get();
+        //return view('LinhVuc/ds-linhvuc',['linhVucs'=>$linhVucs,'trash'=>$trash]);
         //$linhVucs=DB::table('linh_vucs')->get();
-        //return view('LinhVuc/ds-linhvuc', compact('linhVucs'));
+        return view('LinhVuc/ds-linhvuc', compact('linhVucs'));
         //
     }
 
@@ -39,11 +40,12 @@ class LinhVucController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    
+    public function store(LinhVucRequest $request)
     {
         $linhVuc= new LinhVuc;
         $linhVuc->ten_linh_vuc=$request->ten_linh_vuc;
-        $linhVuc->save();
+        $linhVuc->save()->with('msg','Thêm lĩnh vực thành công');
         return redirect()->route('linh-vuc.danh-sach');
     }
     //public function check(Request $Request)
@@ -83,7 +85,7 @@ class LinhVucController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(LinhVucRequest $request, $id)
     {
         $linhVuc =LinhVuc::find($id);
         $linhVuc->ten_linh_vuc=$request->ten_linh_vuc;

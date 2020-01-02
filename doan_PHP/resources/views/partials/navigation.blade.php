@@ -106,8 +106,7 @@
                         <li class="dropdown notification-list">
                             <a class="nav-link dropdown-toggle nav-user mr-0 waves-effect" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
                                 @auth
-                                <!--<img src="{{ asset('assets/images/users') }} / {{ Auth()->user()->hinh_anh_ad }}" alt="user-image" class="rounded-circle">-->
-                                <img src="{{ asset('assets/images/users/Tu.jpg') }}" alt="user-image" class="rounded-circle">
+                                <img src="{{ asset('assets/images/users')}}/{{ Auth()->user()->hinh_anh_ad }}" alt="user-image" class="rounded-circle">
                                 <span class="pro-user-name ml-1">
                                     {{ Auth()->user()->ho_ten }}
                                 @endauth 

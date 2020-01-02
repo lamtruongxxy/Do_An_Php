@@ -17,20 +17,41 @@
         <script src="{{ asset('assets/libs/pdfmake/vfs_fonts.js') }}"></script>
         <!-- third party js ends -->
         <script type="text/javascript">
-        $(document).ready(function()
-        {$("#datatable").DataTable({
-            language:{
-                paginate:{
-                    previous:"<i class='mdi mdi-chevron-left'>",
-                    next:"<i class='mdi mdi-chevron-right'>"
-            }   
-        },
-        drawCallback:function(){
-            $(".dataTables_paginate > .pagination").addClass("pagination-rounded")
-        }
-        });
-        });
-        </script>
+            //HIỆN THI DANH SÁCH DỮ LIỆU
+            $(document).ready(function()
+            {
+                $("#datatable").DataTable({
+                    language:{
+                        paginate:{
+                            previous:"<i class='mdi mdi-chevron-left'>",
+                            next:"<i class='mdi mdi-chevron-right'>"
+                        }   
+                    },
+                    drawCallback:function(){
+                        $(".dataTables_paginate > .pagination").addClass("pagination-rounded")
+                    }
+                });
+            });
+            //THÔNG BÁO KHI XÓA DỮ LIỆU
+            $("#thongbaoxoa").click(function(e){
+            e.preventDefault();//De ko tu dong xoa, chi xoa khi bam OK
+            var th = $(this);
+            Swal.fire({
+                title: "Bạn có chắc xóa?",
+                text: "Dữ liệu bị xóa có thể khôi phục lại!",
+                type: "warning",
+                showCancelButton: !0,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Yes, Delete It"
+            }).then(function(t) {
+                if(t.value){
+                    Swal.fire("Deleted!", "Dữ liệu đã xóa thành công.", "success")
+                    th.parent().submit()
+                }
+            })
+        });    
+    </script>
        
 @endsection
 
@@ -60,7 +81,8 @@
                                                 <th>PHƯƠNG_ÁN_C</th>
                                                 <th>PHƯƠNG_ÁN_D</th>
                                                 <th>ĐÁP ÁN</th>
-                                                <th></th>          
+                                                <th></th>
+                                            </tr>          
                                         </thead>
                                     
                                         <tbody>
@@ -78,21 +100,21 @@
                                                     <form action="{{ route('cau-hoi.xoa',['id'=>$cauHoi->id]) }}" method="POST">
                                                     @csrf
                                                     @method('DELETE')
-                                                    <a href="{{ route('cau-hoi.cap-nhat', ['id'=>$cauHoi->id ]) }}" class="btn btn-info waves-effect waves-light">
-                                                        <i class="mdi mdi-pen-minus">Sửa</i></a>
-                                                    <button type="sumit" class="btn btn-danger waves-effect waves-light"><i class="mdi mdi-trash-can-outline">Xóa</i></a>
+                                                    <a href="{{ route('cau-hoi.cap-nhat', ['id'=>$cauHoi->id ]) }}" class="btn btn-info waves-effect waves-light"><i class="mdi mdi-pen-minus">Sửa</i></a>
+                                                        
+                                                    <button type="sumit" id="thongbaoxoa" class="btn btn-danger waves-effect waves-light" ><i class="mdi mdi-trash-can-outline">Xóas</i></button>
                                                     </form>    
                                                 </td>
                                             </tr>
                                             @endforeach
                                         </tbody>
                                     </table>
-
                                 </div> <!-- end card body-->
                             </div> <!-- end card -->
                         </div><!-- end col-->
                    
                     <div class="col-lg-4">
+                    @include('request/errors')    
                         <div class="card">
                             <div class="card-body">
                                 <h4 class="mb-3 header-title">THÊM MỚI CÂU HỎI</h4>
@@ -100,7 +122,7 @@
                                     @csrf
                                     <div class="form-group">
                                         <label for="noi_dung">NỘI DUNG</label>
-                                        <input type="text" class="form-control" id="noi_dung" name="noi_dung" placeholder="Nội dung" required="">
+                                        <input type="text" class="form-control" id="noi_dung" name="noi_dung" placeholder="Nội dung" >
                                     </div>
 
                                      <div class="form-group">
@@ -115,21 +137,21 @@
 
                                     <div class="form-group">
                                         <label for="phuong_an_a">PHƯƠNG ÁN A</label>
-                                        <input type="text" class="form-control" id="phuong_an_a" name="phuong_an_a" placeholder="Phương án a" required="">
+                                        <input type="text" class="form-control" id="phuong_an_a" name="phuong_an_a" placeholder="Phương án a">
                                     </div>
 
                                     <div class="form-group">
                                         <label for="phuong_an_b">PHƯƠNG ÁN B</label>
-                                        <input type="text" class="form-control" id="phuong_an_b" name="phuong_an_b" placeholder="Phương án b" required="">
+                                        <input type="text" class="form-control" id="phuong_an_b" name="phuong_an_b" placeholder="Phương án b">
                                     </div>                       
                                     <div class="form-group">
                                         <label for="phuong_an_c">PHƯƠNG ÁN C</label>
-                                        <input type="text" class="form-control" id="phuong_an_c" name="phuong_an_c" placeholder="Phương án c" required="">
+                                        <input type="text" class="form-control" id="phuong_an_c" name="phuong_an_c" placeholder="Phương án c">
                                     </div>
 
                                     <div class="form-group">
                                         <label for="phuong_an_d">PHƯƠNG ÁN D</label>
-                                        <input type="text" class="form-control" id="phuong_an_d" name="phuong_an_d" placeholder="Phương án d" required="">
+                                        <input type="text" class="form-control" id="phuong_an_d" name="phuong_an_d" placeholder="Phương án d">
                                     </div>
 
                                     <div class="form-group">
@@ -141,7 +163,7 @@
                                             <option value="D">D</option>
                                         </select>
                                     </div>
-                                    <button type="sumit" class="btn btn-success waves-effect waves-light">
+                                    <button type="sumit" class="btn btn-success waves-effect waves-light" id='luu-thanh-cong'>
                                             <span class="btn-label"><i class="fe-plus"></i></span>Thêm
                                         </button>     
                                 </form>

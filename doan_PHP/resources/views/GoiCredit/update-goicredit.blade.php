@@ -3,7 +3,8 @@
 
 @section('main-content')
                 <div class="row">
-                    <div class="col-lg-12">
+                    <div class="col-lg-6">
+                    @include('request/errors') 
                         <div class="card">
                             <div class="card-body">
                                 <h3 class="mb-3 header-title"> CẬP NHẬT GÓI CREDIT </h3>

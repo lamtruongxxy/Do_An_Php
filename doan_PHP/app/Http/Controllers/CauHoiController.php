@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\CauHoi;
 use App\LinhVuc;
+use App\Http\Requests\CauHoiRequest;
 class CauHoiController extends Controller
 {
     /**
@@ -35,7 +36,7 @@ class CauHoiController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CauHoiRequest $request)
     {
         $dsCauHoi = new CauHoi;
 
@@ -89,7 +90,7 @@ class CauHoiController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(CauHoiRequest $request, $id)
     {
         $dsCauHoi =CauHoi::find($id);
         

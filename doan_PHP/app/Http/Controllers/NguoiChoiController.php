@@ -111,9 +111,9 @@ class NguoiChoiController extends Controller
 
         $xoaNguoiChoi = $nguoiChoi->delete();
         if($xoaNguoiChoi){
-            return redirect()->route('cau-hoi.danh-sach');
+            return redirect()->route('nguoi-choi.danh-sach');
         }
-            return redirect()->route('cau-hoi.danh-sach');
+            return redirect()->route('nguoi-choi.danh-sach');
     }
     public function trashList()// Danh Sách đã xóa
     {

@@ -3,6 +3,7 @@
 @section('main-content')
 <div class="row">
                     <div class="col-lg-6">
+                    @include('request/errors')
                         <div class="card">
                             <div class="card-body">
                                 <h4 class="mb-3 header-title">CẬP NHẬT CÂU HỎI</h4>

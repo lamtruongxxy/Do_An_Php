@@ -40,33 +40,8 @@
         </script>
 
         <script type="text/javascript">
-            //THÔNG BÁO LƯU DỮ LIỆU THÀNH CÔNG
-            ! function(p) {
-                "use strict";
-                var t = function() {};
-                t.prototype.send = function(t, i, o, e, n, a, s, r) {
-                    a || (a = 3e3), s || (s = 1);
-                    var c = {
-                        heading: t,
-                        text: i,
-                        position: o,
-                        loaderBg: e,
-                        icon: n,
-                        hideAfter: a,
-                        stack: s
-                    };
-                    r && (c.showHideTransition = r), console.log(c), p.toast().reset("all"), p.toast(c)
-                }, p.NotificationApp = new t, p.NotificationApp.Constructor = t
-            }(window.jQuery),
-            function(i) {
-                "use strict";
-                i("#luu-thanh-cong").on("click", function(t) {
-                    i.NotificationApp.send("THÀNH CÔNG", "LƯU DỮ LIỆU THÀNH CÔNG", "top-right", "#5ba035", "success")
-                })
-            }(window.jQuery);
-
-            //THÔNG BÁO KHI XÓA DỮ LIỆU
-            $('.thong-bao-xoa').click(function(e){
+        //THÔNG BÁO KHI XÓA DỮ LIỆU
+            $('#thongbaoxoa').click(function(e){
             e.preventDefault();//De ko tu dong xoa, chi xoa khi bam OK
             var th = $(this);
             Swal.fire({
@@ -103,16 +78,15 @@
 @endsection
 
 @section('main-content')
-
-    <div class="row">
+<div class="row">
                     <div class="col-8">
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="header-title">DANH SÁCH LĨNH VỰC</h4>
-                                <p class="text-muted font-13 mb-4"></p>
-                                <table id="datatable" class="table dt-responsive nowrap">
-                                    <thead>
-                                        <tr>
+                                <h4 class="header-title">DANH SÁCH CÂU HỎI</h4>
+                                <p class="text-muted font-13 mb-4">
+                                    <table id="datatable" class="table dt-responsive nowrap">
+                                        <thead>
+                                            <tr>
                                             <th>ID</th>
                                             <th>Tên lĩnh vực</th>
                                             <th></th>
@@ -124,28 +98,27 @@
                                         <tr>
                                             <td>{{ $linhvuc->id }}</td>
                                             <td>{{ $linhvuc->ten_linh_vuc}}</td>
-                                            <td>
-                                                
+                                            <td>    
                                                 <form action="{{ route('linh-vuc.xoa',['id'=>$linhvuc->id]) }}" method="POST">
                                                 @csrf
                                                 @method('DELETE')
 
                                                 <a href="{{ route('linh-vuc.cap-nhat', ['id'=>$linhvuc->id ]) }}" class="btn btn-info waves-effect waves-light"><i class="mdi mdi-pen-minus">Sửa </i></a>
                                                 
-                                                <button type="sumit" class="thong-bao-xoa btn btn-danger waves-effect waves-light" ><i class="mdi mdi-trash-can-outline">Xóa </i></button>
+                                                <button id="thongbaoxoa" type="sumit" class=" btn btn-danger waves-effect waves-light" ><i class="mdi mdi-trash-can-outline">Xóa </i></button>
                                                 </form>                                  
                                             </td>
                                         </tr>
                                         @endforeach
                                     </tbody>
                                 </table>
-
                             </div> <!-- end card body-->
                         </div> <!-- end card -->
                     </div><!-- end col-->
                 
                 <!-- end row-->
                    <div class="col-lg-4">
+                   @include('request/errors')
                         <div class="card">
                             <div class="card-body">
                                 <h3 class="mb-3 header-title"> THÊM MỚI LĨNH VỰC </h3>
@@ -153,9 +126,9 @@
                                     @csrf
                                     <div class="form-group">
                                         <label for="ten_linh_vuc">TÊN LĨNH VỰC</label>
-                                        <input type="text" class="form-control" id="ten_linh_vuc" name="ten_linh_vuc" placeholder="Tên Lĩnh vực" required=""> 
+                                        <input type="text" class="form-control" id="ten_linh_vuc" name="ten_linh_vuc" placeholder="Tên Lĩnh vực"> 
                                     </div>
-                                    <button type="submit" class="btn btn-success waves-effect waves-light" id='luu-thanh-cong'>
+                                    <button type="submit" class="btn btn-success waves-effect waves-light">
                                             <span class="btn-label"><i class="fe-plus"></i></span>Thêm
                                         </button>  
                                 </form>

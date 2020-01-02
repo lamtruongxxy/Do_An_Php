@@ -10,7 +10,7 @@
                 <div class="user-box">
                     @auth
                     <div class="user-img">
-                        <img src='assets/images/users/{{ Auth()->user()->hinh_anh_ad }}' alt="user-img" title="Mat Helme" class="rounded-circle img-fluid">
+                        <img src="{{ asset('assets/images/users')}}/{{ Auth()->user()->hinh_anh_ad }}" alt="user-img" title="Mat Helme" class="rounded-circle img-fluid">
                         <a href="javascript:void(0);" class="user-edit"><i class="mdi mdi-pencil"></i></a>
                     </div>
             

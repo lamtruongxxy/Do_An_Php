@@ -41,7 +41,7 @@
                         <div class="text-center card-box">
                             <div class="pt-2 pb-2">
                             
-                                <img src=" assets/images/users/{{ $quantri->hinh_anh_ad }} " class="rounded-circle img-thumbnail avatar-xl"
+                                <img src="{{ asset('assets/images/users')}}/{{ $quantri->hinh_anh_ad }}" class="rounded-circle img-thumbnail avatar-xl"
                                     alt="profile-image">
 
                                 <h4 class="mt-3"><a href="extras-profile.html" class="text-dark">{{ $quantri->ho_ten }}</a></h4>
