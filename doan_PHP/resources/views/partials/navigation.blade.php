@@ -148,7 +148,7 @@
                     <div class="logo-box">
                         <a href="{{ route('dashboard') }}" class="logo text-center">
                             <span class="logo-lg">
-                                <img src="{{ asset('assets/images/logo-app.png') }}" alt="" height="26">
+                                <img src="{{ asset('assets/images/logo-app.png') }}" alt="" height="60">
                                 <!-- <span class="logo-lg-text-dark">Upvex</span> -->
                             </span>
                             <span class="logo-sm">
