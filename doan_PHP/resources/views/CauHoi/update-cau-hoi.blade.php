@@ -12,7 +12,7 @@
                                     @csrf
                                     <div class="form-group">
                                         <label for="noi_dung">Nội dung</label>
-                                        <input type="text" class="form-control" id="noi_dung" name="noi_dung" value="{{ $dsCauHoi->noi_dung }}" required="">
+                                        <input type="text" class="form-control" id="noi_dung" name="noi_dung" value="{{ $dsCauHoi->noi_dung }}" >
                                     </div>
                                     <div class="form-group">
                                         <label for="linh_vuc">Lĩnh vực</label>
@@ -27,21 +27,21 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="phuong_an_a">Phương án A</label>
-                                        <input type="text" class="form-control" id="phuong_an_a" name="phuong_an_a" value="{{ $dsCauHoi->phuong_an_a }}" required="">
+                                        <input type="text" class="form-control" id="phuong_an_a" name="phuong_an_a" value="{{ $dsCauHoi->phuong_an_a }}" >
                                     </div>
 
                                     <div class="form-group">
                                         <label for="phuong_an_b">Phương án B</label>
-                                        <input type="text" class="form-control" id="phuong_an_b" name="phuong_an_b" value="{{ $dsCauHoi->phuong_an_b }}" required="">
+                                        <input type="text" class="form-control" id="phuong_an_b" name="phuong_an_b" value="{{ $dsCauHoi->phuong_an_b }}" >
                                     </div>                       
                                     <div class="form-group">
                                         <label for="phuong_an_c">Phương án C</label>
-                                        <input type="text" class="form-control" id="phuong_an_c" name="phuong_an_c" value="{{ $dsCauHoi->phuong_an_c }}" required="">
+                                        <input type="text" class="form-control" id="phuong_an_c" name="phuong_an_c" value="{{ $dsCauHoi->phuong_an_c }}" >
                                     </div>
 
                                     <div class="form-group">
                                         <label for="phuong_an_d">Phương án D</label>
-                                        <input type="text" class="form-control" id="phuong_an_d" name="phuong_an_d" value="{{ $dsCauHoi->phuong_an_d }}" required="">
+                                        <input type="text" class="form-control" id="phuong_an_d" name="phuong_an_d" value="{{ $dsCauHoi->phuong_an_d }}" >
                                     </div>
 
                                     <div class="form-group">

@@ -99,6 +99,7 @@
                                             <th>CREDIT</th>
                                             <th>SỐ TIỀN</th>
                                             <th>THỜI GIAN XÓA</th>
+                                            <th></th>
                                         </tr>
                                     </thead>
                                 

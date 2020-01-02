@@ -17,6 +17,16 @@ class LuotChoiAPI extends Controller
     	];
     	return response()->json($result);
     }
+    public function loadLuotChoiTheoIdNguoiChoi($id)
+    {
+        $listLuotChoi = LuotChoi::where('nguoi_choi_id',$id)->orderBy('diem','desc')->get();
+        $res = [
+            'success'  => true,
+            'total'    => count($listLuotChoi),
+            'data'     => $listLuotChoi
+        ];
+        return response()->json($res);
+    }
 
     public function luuLuotChoi (Request $request)
 	{

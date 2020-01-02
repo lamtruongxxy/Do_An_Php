@@ -102,7 +102,7 @@
                                                     @method('DELETE')
                                                     <a href="{{ route('cau-hoi.cap-nhat', ['id'=>$cauHoi->id ]) }}" class="btn btn-info waves-effect waves-light"><i class="mdi mdi-pen-minus">Sửa</i></a>
                                                         
-                                                    <button type="sumit" id="thongbaoxoa" class="btn btn-danger waves-effect waves-light" ><i class="mdi mdi-trash-can-outline">Xóas</i></button>
+                                                    <button type="sumit" id="thongbaoxoa" class="btn btn-danger waves-effect waves-light" ><i class="mdi mdi-trash-can-outline">Xóa</i></button>
                                                     </form>    
                                                 </td>
                                             </tr>

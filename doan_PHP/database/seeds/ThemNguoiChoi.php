@@ -27,6 +27,14 @@ class ThemNguoiChoi extends Seeder
           'diem_cao_nhat'=>'450',
           'credit'=>'10000'
       ]);
+      NguoiChoi::create(
+        ['ten_dang_nhap' =>'nc3',
+        'mat_khau'=> Hash::make ('abc12345'),
+        'email'=>'anhtu22@gmail.com',
+        'hinh_dai_dien'=>'db1sda.png',
+        'diem_cao_nhat'=>'4500',
+        'credit'=>'40'
+    ]);
         
     }
            

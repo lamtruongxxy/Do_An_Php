@@ -97,7 +97,7 @@
                                                 @method('DELETE')
                                                 <a href="{{ route('goi-credit.cap-nhat', ['id'=>$goi->id ]) }}" class="btn btn-info waves-effect waves-light"><i class="mdi mdi-pen-minus">Sửa</i></a>
 
-                                                <button type="submit" class="thong-bao-xoa btn btn-danger waves-effect waves-light"> <i class="mdi mdi-trash-can-outline"> Xóa</i></a>
+                                                <button type="submit" class=" btn btn-danger waves-effect waves-light"> <i class="mdi mdi-trash-can-outline"> Xóa</i></a>
                                                 </button>
                                             </form>
                                             </td>

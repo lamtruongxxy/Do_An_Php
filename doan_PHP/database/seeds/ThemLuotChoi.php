@@ -29,5 +29,17 @@ class ThemLuotChoi extends Seeder
                         'so_cau'    => rand(0,100),
                         'diem'    => rand(0,10000),
             ]);
+            LuotChoi::create(
+                [
+                        'nguoi_choi_id' => App\NguoiChoi::pluck('id')->random(),
+                        'so_cau'    => rand(0,100),
+                        'diem'    => rand(0,10000),
+                ]);          
+            LuotChoi::create(
+                [
+                            'nguoi_choi_id' => App\NguoiChoi::pluck('id')->random(),
+                            'so_cau'    => rand(0,100),
+                            'diem'    => rand(0,10000),
+                ]);
     }
 }

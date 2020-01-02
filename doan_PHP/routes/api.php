@@ -43,6 +43,9 @@ Route::middleware(['assign.guard:api','jwt.auth'])->group(function(){
     });
     Route::prefix('luot-choi')->group(function(){
 
+        //Load lượt chơi theo id người chơi
+        Route::get('/{id}','API\LuotChoiAPI@loadLuotChoiTheoIdNguoiChoi');
+
         //Load all Ds Chi Tiet Luot Choi
         Route::get('/chi-tiet','API\LuotChoiAPI@chiTietLuotChoi');
 
