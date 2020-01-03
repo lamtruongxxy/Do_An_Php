@@ -16,9 +16,14 @@
         <script src="{{ asset('assets/libs/pdfmake/pdfmake.min.js') }}"></script>
         <script src="{{ asset('assets/libs/pdfmake/vfs_fonts.js') }}"></script>
         <!-- third party js ends -->
-    <script type="text/javascript">
-         //HIỆN THI DANH SÁCH DỮ LIỆU
-         $(document).ready(function()
+        <!-- Tost-->
+        <script src="{{ asset('assets/libs/jquery-toast/jquery.toast.min.js') }}"></script>
+        <!-- Sweet Alerts js -->
+        <script src="{{ asset('assets/libs/sweetalert2/sweetalert2.min.js') }}"></script>
+
+        <script type="text/javascript">
+            //HIỆN THI DANH SÁCH DỮ LIỆU
+            $(document).ready(function()
             {
                 $("#datatable").DataTable({
                     language:{
@@ -32,22 +37,20 @@
                     }
                 });
             });
-        </script>
 
-        <script type="text/javascript">
         //THÔNG BÁO KHI XÓA DỮ LIỆU
-            $('.thong-bao-xoa').click(function(e){
-            e.preventDefault();//De ko tu dong xoa, chi xoa khi bam OK
-            var th = $(this);
-            Swal.fire({
-                title: "Bạn có chắc xóa?",
+            $(document).on('click', '.thong-bao-xoa', function(e) {
+			e.preventDefault();
+			var th = $(this);
+			Swal.fire({
+				title: "Bạn có chắc xóa?",
                 text: "Dữ liệu bị xóa có thể khôi phục lại!",
                 type: "warning",
                 showCancelButton: !0,
                 confirmButtonColor: "#3085d6",
                 cancelButtonColor: "#d33",
                 confirmButtonText: "Yes, Delete It"
-            }).then(function(t) {
+			}).then(function(t) {
                 if(t.value){
                     Swal.fire("Deleted!", "Dữ liệu đã xóa thành công.", "success")
                     th.parent().submit()
@@ -55,31 +58,38 @@
             })
         });    
     </script>
-    
+
+
+       
 @endsection
 
 @section('css')
-   <!-- third party css -->
+        <!-- third party css -->
         <link href="{{ asset ('assets/libs/datatables/dataTables.bootstrap4.css') }}" rel="stylesheet" type="text/css" />
         <link href="{{ asset ('assets/libs/datatables/responsive.bootstrap4.css') }}" rel="stylesheet" type="text/css" />
         <link href="{{ asset ('assets/libs/datatables/buttons.bootstrap4.css') }}" rel="stylesheet" type="text/css" />
         <link href="{{ asset ('assets/libs/datatables/select.bootstrap4.css') }}" rel="stylesheet" type="text/css" />
+        <!-- Jquery Toast css -->
+        <link href="{{ asset ('assets/libs/jquery-toast/jquery.toast.min.css') }}" rel="stylesheet" type="text/css" />
+        <!-- Sweet Alert-->
+        <link href="{{ asset ('assets/libs/sweetalert2/sweetalert2.min.css') }}" rel="stylesheet" type="text/css" />
 @endsection
 
 @section('main-content')
-
 <div class="row">
-                <div class="col-8">
+                    <div class="col-8">
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="header-title">DANH SÁCH GÓI CREDITS</h4>
-                                <table id="datatable" class="table dt-responsive nowrap">
-                                    <thead>
-                                        <tr>
+                                <h4 class="header-title">DANH SÁCH GÓI CREDIT</h4>
+                                @include('request/complete') 
+                                <p class="text-muted font-13 mb-4">
+                                    <table id="datatable" class="table dt-responsive nowrap">
+                                        <thead>
+                                            <tr>
                                             <th>ID</th>
                                             <th>Tên gói</th>
-                                            <th>Credit</th>           
-                                            <th>Số Tiền</th>
+                                            <th>Credit</th>
+                                            <th>Số tiền</th>       
                                             <th></th>
                                         </tr>
                                     </thead>
@@ -89,26 +99,26 @@
                                         <tr>
                                             <td>{{ $goi->id }}</td>
                                             <td>{{ $goi->ten_goi}}</td>
-                                            <td>{{ $goi->credit}}</td>
+                                            <td>{{ $goi->credit }}</td>
                                             <td>{{ $goi->so_tien}}</td>
-                                            <td>
+                                            <td>    
                                                 <form action="{{ route('goi-credit.xoa',['id'=>$goi->id]) }}" method="POST">
                                                 @csrf
                                                 @method('DELETE')
-                                                <a href="{{ route('goi-credit.cap-nhat', ['id'=>$goi->id ]) }}" class="btn btn-info waves-effect waves-light"><i class="mdi mdi-pen-minus">Sửa</i></a>
 
-                                                <button type="submit" class=" btn btn-danger waves-effect waves-light"> <i class="mdi mdi-trash-can-outline"> Xóa</i></a>
-                                                </button>
-                                            </form>
+                                                <a href="{{ route('goi-credit.cap-nhat', ['id'=>$goi->id ]) }}" class="btn btn-info waves-effect waves-light"><i class="mdi mdi-pen-minus">Sửa </i></a>
+                                                
+                                                <button type="sumit" class=" btn btn-danger waves-effect waves-light thong-bao-xoa" ><i class="mdi mdi-trash-can-outline">Xóa </i></button>
+                                                </form>                                  
                                             </td>
                                         </tr>
                                         @endforeach
                                     </tbody>
                                 </table>
-                            </div> 
-                        </div> 
-                    </div>
-                     <div class="col-lg-4">
+                            </div> <!-- end card body-->
+                        </div> <!-- end card -->
+                    </div><!-- end col-->
+                    <div class="col-lg-4">
                      @include('request/errors') 
                         <div class="card">
                             <div class="card-body">

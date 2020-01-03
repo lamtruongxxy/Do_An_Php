@@ -17,10 +17,10 @@ class GoiCreditController extends Controller
     public function index()
     {
         $goiCredits=GoiCredit::all();
-        $trash=DB::table('goi_credits')->whereNotNull('deleted_at')->get();
-        return view('GoiCredit/ds-goicredit',['goiCredits'=>$goiCredits,'trash'=>$trash]);
+        //$trash=DB::table('goi_credits')->whereNotNull('deleted_at')->get();
+        //return view('GoiCredit/ds-goicredit',['goiCredits'=>$goiCredits,'trash'=>$trash]);
         //$goiCredits=DB::table('goi_credits')->get();
-        //return view('GoiCredit/ds-goicredit', compact('goiCredits'));
+        return view('GoiCredit/ds-goicredit', compact('goiCredits'));
     }
 
     /**
@@ -51,7 +51,8 @@ class GoiCreditController extends Controller
 
         $goiCredit->save();
         
-        return redirect()->route('goi-credit.danh-sach');
+        return redirect()->route('goi-credit.danh-sach')->
+        with('thong-bao','Thêm mới gói credit thành công');
     }
 
     /**
@@ -96,7 +97,8 @@ class GoiCreditController extends Controller
 
         $goiCredit->save();
         
-        return redirect()->route('goi-credit.danh-sach');
+        return redirect()->route('goi-credit.danh-sach')->
+        with('thong-bao','Cập nhật gói credit thành công');
     }
 
     /**
@@ -122,6 +124,7 @@ class GoiCreditController extends Controller
     public function restore($id)// Khôi phục
     {
         $goiCredit=GoiCredit::onlyTrashed()->findOrFail($id)->restore();
-        return redirect()->route('goi-credit.danh-sach');
+        return redirect()->route('goi-credit.danh-sach')->
+        with('thong-bao','Khôi phục gói credit thành công');;
     }
 }

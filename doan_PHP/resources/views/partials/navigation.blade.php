@@ -221,7 +221,7 @@
                                     <li>
                                         <ul>
                                             <li>
-                                                <a href="{{ route('nguoi-choi.danh-sach') }}">Danh sách & thêm mới</a>
+                                                <a href="{{ route('nguoi-choi.danh-sach') }}">Danh sách</a>
                                             </li>
                                              <li>
                                                 <a href="{{ route('nguoi-choi.trash')}}">Danh sách đã xóa</a>

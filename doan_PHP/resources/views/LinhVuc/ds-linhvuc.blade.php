@@ -37,22 +37,20 @@
                     }
                 });
             });
-        </script>
 
-        <script type="text/javascript">
         //THÔNG BÁO KHI XÓA DỮ LIỆU
-            $('#thongbaoxoa').click(function(e){
-            e.preventDefault();//De ko tu dong xoa, chi xoa khi bam OK
-            var th = $(this);
-            Swal.fire({
-                title: "Bạn có chắc xóa?",
+            $(document).on('click', '.thong-bao-xoa', function(e) {
+			e.preventDefault();
+			var th = $(this);
+			Swal.fire({
+				title: "Bạn có chắc xóa?",
                 text: "Dữ liệu bị xóa có thể khôi phục lại!",
                 type: "warning",
                 showCancelButton: !0,
                 confirmButtonColor: "#3085d6",
                 cancelButtonColor: "#d33",
                 confirmButtonText: "Yes, Delete It"
-            }).then(function(t) {
+			}).then(function(t) {
                 if(t.value){
                     Swal.fire("Deleted!", "Dữ liệu đã xóa thành công.", "success")
                     th.parent().submit()
@@ -82,7 +80,8 @@
                     <div class="col-8">
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="header-title">DANH SÁCH CÂU HỎI</h4>
+                                <h4 class="header-title">DANH SÁCH LĨNH VỰC</h4>
+                                @include('request/complete')
                                 <p class="text-muted font-13 mb-4">
                                     <table id="datatable" class="table dt-responsive nowrap">
                                         <thead>
@@ -105,7 +104,7 @@
 
                                                 <a href="{{ route('linh-vuc.cap-nhat', ['id'=>$linhvuc->id ]) }}" class="btn btn-info waves-effect waves-light"><i class="mdi mdi-pen-minus">Sửa </i></a>
                                                 
-                                                <button id="thongbaoxoa" type="sumit" class=" btn btn-danger waves-effect waves-light" ><i class="mdi mdi-trash-can-outline">Xóa </i></button>
+                                                <button type="sumit" class=" btn btn-danger waves-effect waves-light thong-bao-xoa" ><i class="mdi mdi-trash-can-outline">Xóa </i></button>
                                                 </form>                                  
                                             </td>
                                         </tr>

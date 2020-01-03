@@ -69,13 +69,13 @@ Route::prefix("nguoi-choi")->group(function(){
 		
 		Route::get('/danh-sach','NguoiChoiController@index')->name('danh-sach');
 
-		Route::get('/them-moi','NguoiChoiController@create')->name("them-moi");
-		Route::post('/them-moi','NguoiChoiController@store')->name("post-them-moi");
+		//Route::get('/them-moi','NguoiChoiController@create')->name("them-moi");
+		//Route::post('/them-moi','NguoiChoiController@store')->name("post-them-moi");
 
-		Route::get('/cap-nhat/{id}','NguoiChoiController@edit')->name('cap-nhat');
-		Route::post('/cap-nhat/{id}','NguoiChoiController@update')->name('xl-cap-nhat');
+		//Route::get('/cap-nhat/{id}','NguoiChoiController@edit')->name('cap-nhat');
+		//Route::post('/cap-nhat/{id}','NguoiChoiController@update')->name('xl-cap-nhat');
 
-		Route::delete('/xoa/{id}','NguoiChoiController@destroy')->name('xoa');
+		Route::get('/xoa/{id}','NguoiChoiController@destroy')->name('xoa');
 		Route::get('/trash-list','NguoiChoiController@trashList')->name('trash');
 		
 		Route::get('/khoi-phuc/{id}','NguoiChoiController@restore')->name('restore');		

@@ -41,7 +41,7 @@ class NguoiChoiController extends Controller
     //}
 
     public function store(Request $request)
-    {
+    {/*
         $nguoiChoi= new NguoiChoi;
         $nguoiChoi->ten_dang_nhap = $request->ten_dang_nhap;
         $nguoiChoi->mat_khau = Hash::make($request->mat_khau);
@@ -51,6 +51,7 @@ class NguoiChoiController extends Controller
         $nguoiChoi->credit = $request->credit;
         $nguoiChoi->save();
         return back();
+        */
     }
 
     /**
@@ -72,8 +73,8 @@ class NguoiChoiController extends Controller
      */
     public function edit($id)
     {
-        $nguoiChoi =NguoiChoi::find($id);
-        return view('NguoiChoi/update-nguoi-choi', compact('nguoiChoi'));
+        //$nguoiChoi =NguoiChoi::find($id);
+        //return view('NguoiChoi/update-nguoi-choi', compact('nguoiChoi'));
     }
 
     /**
@@ -84,7 +85,7 @@ class NguoiChoiController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
-    {
+    {/*
         $nguoiChoi = NguoiChoi::find($id);
 
         $nguoiChoi->ten_dang_nhap=$request->ten_dang_nhap;
@@ -96,6 +97,7 @@ class NguoiChoiController extends Controller
         $nguoiChoi->save();
 
         return redirect()->route('nguoi-choi.danh-sach');
+        */
     }
 
     /**
@@ -123,6 +125,7 @@ class NguoiChoiController extends Controller
     public function restore($id)// Khôi phục
     {
         $nguoiChoi=NguoiChoi::onlyTrashed()->findOrFail($id)->restore();
-        return redirect()->route('nguoi-choi.danh-sach');
+        return redirect()->route('nguoi-choi.danh-sach')
+        ->with('thong-bao','Khôi phục người chơi thành công');
     }
 }

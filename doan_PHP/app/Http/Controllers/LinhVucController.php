@@ -45,8 +45,9 @@ class LinhVucController extends Controller
     {
         $linhVuc= new LinhVuc;
         $linhVuc->ten_linh_vuc=$request->ten_linh_vuc;
-        $linhVuc->save()->with('msg','Thêm lĩnh vực thành công');
-        return redirect()->route('linh-vuc.danh-sach');
+        $linhVuc->save();
+        return redirect()->route('linh-vuc.danh-sach')
+        ->with('thong-bao','Thêm mới lĩnh vực thành công');
     }
     //public function check(Request $Request)
     //{
@@ -90,7 +91,8 @@ class LinhVucController extends Controller
         $linhVuc =LinhVuc::find($id);
         $linhVuc->ten_linh_vuc=$request->ten_linh_vuc;
         $linhVuc->save();
-        return redirect()->route('linh-vuc.danh-sach');
+        return redirect()->route('linh-vuc.danh-sach')
+        ->with('thong-bao','Cập nhật lĩnh vực thành công');
     }
 
     /**
@@ -122,7 +124,8 @@ class LinhVucController extends Controller
     public function restore($id)// Khôi phục
     {
         $linhVuc=LinhVuc::onlyTrashed()->findOrFail($id)->restore();
-        return redirect()->route('linh-vuc.danh-sach');
+        return redirect()->route('linh-vuc.danh-sach')
+        ->with('thong-bao','Khôi phục lĩnh vực thành công');
         //try {
             //$id=$request->id;
             //$linhVuc=LinhVuc::onlyTrashed()->findOrFail($id);

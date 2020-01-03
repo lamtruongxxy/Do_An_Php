@@ -56,7 +56,8 @@ class CauHoiController extends Controller
 
         $dsCauHoi->save();
 
-        return redirect()->route('cau-hoi.danh-sach');
+        return redirect()->route('cau-hoi.danh-sach')
+        ->with('thong-bao','Thêm mới câu hỏi thành công');
     }
 
     /**
@@ -110,7 +111,8 @@ class CauHoiController extends Controller
 
         $dsCauHoi->save();
 
-        return redirect()->route('cau-hoi.danh-sach');
+        return redirect()->route('cau-hoi.danh-sach')
+        ->with('thong-bao','Cập nhật câu hỏi thành công');
     }
 
     /**
@@ -136,6 +138,7 @@ class CauHoiController extends Controller
     public function restore($id)// Khôi phục
     {
         $cauHoi=CauHoi::onlyTrashed()->findOrFail($id)->restore();
-        return redirect()->route('cau-hoi.danh-sach');
+        return redirect()->route('cau-hoi.danh-sach')
+        ->with('thong-bao','Khôi phục câu hỏi thành công');
     }
 }
