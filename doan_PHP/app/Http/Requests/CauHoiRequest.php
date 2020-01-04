@@ -24,8 +24,7 @@ class CauHoiRequest extends FormRequest
     public function rules()
     {
         return [
-            "noi_dung"      => "required|unique:cau_hois,noi_dung",
-            
+            "noi_dung"      => "required||min:4|max:50|unique:cau_hois,noi_dung",
             "phuong_an_a"   =>"required",
             "phuong_an_b"   =>"required",
             "phuong_an_c"   =>"required",
@@ -36,6 +35,8 @@ class CauHoiRequest extends FormRequest
     {
         return [
             "noi_dung.required"     =>"Nội dung để trống",
+            "noi_dung.min"          =>"Nội dung ít nhất phải 4 ký tự ",
+            "noi_dung.max"          =>"Nội dung không được quá 50 ký tự ",
             "noi_dung.unique"       =>"Nội dung đã tồn tại",
             
             "phuong_an_a.required"  =>"Phương án a trống",

@@ -30,7 +30,7 @@ class GoiCreditController extends Controller
      */
     public function create()
     {
-        return view('GoiCredit/them-moi-goidredit');
+        //return view('GoiCredit/them-moi-goidredit');
     }
 
     /**
